@@ -1,2 +1,5 @@
 class Resource < ActiveRecord::Base
-end
+
+  has_many :loans 
+  has_many :patrons, through: :loans
+ end

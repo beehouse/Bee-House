@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202021640) do
+ActiveRecord::Schema.define(version: 20150202235944) do
 
   create_table "loans", force: true do |t|
     t.integer  "patron_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150202021640) do
     t.integer  "available"
     t.string   "title"
     t.string   "creator"
-    t.string   "description"
+    t.text     "description", limit: 255
     t.string   "image"
     t.string   "publisher"
     t.date     "date"

@@ -20,6 +20,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'pry-rails'
 gem 'awesome_print'
 gem 'rename'
+gem 'bcrypt'
+gem 'rabl-rails'
+gem 'oj'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
