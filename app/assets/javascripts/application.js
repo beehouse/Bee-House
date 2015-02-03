@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require lodash
+//= require lodash 
 //= require backbone
 //= require bee_house
 //= require_tree ../templates

@@ -2,14 +2,15 @@ Rails.application.routes.draw do
 
   root 'application#index'
 
-  get 'loans' => 'loans#index'
+  scope 'api' do 
+    get 'loans' => 'loans#index'
 
-  resources :resources do
-    resources :loans
+    resources :resources do
+      resources :loans
+    end 
+    
+    resources :patrons do 
+      resources :loans
+    end 
   end 
-
-  resources :patrons do 
-    resources :loans
-  end 
-
 end
