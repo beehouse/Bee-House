@@ -6,22 +6,7 @@
 
     <h3 class="book__count"><%= resources.length %> Books in Bee House</h3>
   </header>
-  <ul>
-    <% _.each(resources, function(book){ %>
-      <li class="book__entry">
-        <aside class="book__images">
-          <img src=<%= book.attributes.image || "https://placekitten.com/g/120/120" %> class="book__thumbnail">
-        </aside>
-        <% console.log(book.attributes); %>
-        <article class="book__attributes">
-          <h4 class="book__title"><%= book.attributes.title %></h4>
-          <p class="book__creator"><%= book.attributes.creator %></p>
-          <blockquote class="book__description"><%= book.attributes.description %></blockquote>
-        </article>
-        <button class="book__reserve">Reserve</button>
-        <em class="book__more-info">More Info</em>
-      </li>
-    <% }); %>
+  <ul class="book__list">
   </ul>
 
 </section>

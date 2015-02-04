@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202235944) do
+ActiveRecord::Schema.define(version: 20150204164020) do
+
+  create_table "holds", force: true do |t|
+    t.integer  "patron_id"
+    t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "loans", force: true do |t|
     t.integer  "patron_id"
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150202235944) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
   create_table "resources", force: true do |t|

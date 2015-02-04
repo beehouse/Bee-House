@@ -5,14 +5,11 @@ Rails.application.routes.draw do
   scope 'api' do 
     get 'loans' => 'loans#index'
 
-    resources :resources do
-      resources :loans
-    end 
-    
-    resources :patrons do 
-      resources :loans
-    end 
+    resources :resources
+    resources :patrons
+    resources :loans 
+    resources :holds 
   end 
 
-  # match '*path', to: 'application#index'
+  match '*path', to: 'application#index', via: :get 
 end
