@@ -4,7 +4,10 @@ window.BeeHouse = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new BeeHouse.Routers.Resources();
+    Backbone.history.start(
+      {pushState: true}
+    );
   }
 };
 

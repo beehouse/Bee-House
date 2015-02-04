@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       resources :loans
     end 
   end 
+
+  # match '*path', to: 'application#index'
 end
