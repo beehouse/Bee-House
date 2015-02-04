@@ -1,3 +1,72 @@
 // Place all the styles related to the RESOURCES controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+button {
+  background-color: black;
+  border: none;
+  color: white;
+  font: 1em "Crimson Text";
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+}
+.books__main {
+  width: 75%;
+  float: left;
+  margin: 1em;
+  padding: 2em;
+  border-right: 10px solid black;
+}
+.books__header {
+  border-bottom: 1px solid black;
+  overflow: auto; //janky clearfix
+}
+.book__pg-title {
+  float: left;
+}
+.book__count {
+  float: right;
+  text-align: right;
+  margin-top: 0.5em;
+}
+.book__entry {
+  border-bottom: 1px solid black;
+  padding: 0.75em;
+  list-style: none;
+  overflow: auto; //janky clearfix
+}
+.book__images {
+  width: 15%;
+  float: left;
+  padding: 0.5em;
+  img {
+    max-width: 100%;
+  }
+}
+.book__attributes {
+  width: 60%;
+  float: left;
+  padding: 0.5em;
+}
+.book__thumbnail {
+  float: left;
+}
+.book__title {
+  font-size: 150%;
+  margin: 0;
+  line-height: 1.15;
+}
+.book__creator {
+  margin: 0.5em 0 0 0;
+}
+.book__more-info {
+  float: right;
+  margin-top: 1.25em;
+}
+.book__description {
+  margin: 0.5em 0;
+  font-size: 90%;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}

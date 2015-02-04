@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: 1em "Crimson Text";
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+h1 {
+  font-size: 225%;
+}
+h2 {
+  font-size: 175%;
+}
+h3 {
+  font-size: 150%;
+}
+h4 {
+  font-size: 125%;
+}
+.wrapper {
+  width: 90%;
+  margin: auto;
+}
+.beehouse__pg-logo {
+  clear: both;
+  margin-bottom: 1em;
+}

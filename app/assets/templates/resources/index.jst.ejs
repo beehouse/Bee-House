@@ -1,5 +1,40 @@
-<h1>Books, glorious books!</h1>
+<div class="wrapper">
+<section class="books__main">
+  <img src="https://placekitten.com/g/120/80" class="beehouse__pg-logo">
+  <header class="books__header">
+    <h1 class="book__pg-title">Books</h1>
 
-<ul>
-  <%= resources.length %>
-</ul>
+    <h3 class="book__count"><%= resources.length %> Books in Bee House</h3>
+  </header>
+  <ul>
+    <% _.each(resources, function(book){ %>
+      <li class="book__entry">
+        <aside class="book__images">
+          <img src=<%= book.attributes.image || "https://placekitten.com/g/120/120" %> class="book__thumbnail">
+        </aside>
+        <% console.log(book.attributes); %>
+        <article class="book__attributes">
+          <h4 class="book__title"><%= book.attributes.title %></h4>
+          <p class="book__creator"><%= book.attributes.creator %></p>
+          <blockquote class="book__description"><%= book.attributes.description %></blockquote>
+        </article>
+        <button class="book__reserve">Reserve</button>
+        <em class="book__more-info">More Info</em>
+      </li>
+    <% }); %>
+  </ul>
+
+</section>
+
+<aside>
+  <h3>Hi, Amanda!!!</h3>
+
+  <p>Currently checked out:</p>
+
+  <em>2 out of 10</em>
+
+  <ol>
+    <li>Girls</li>
+  </ol>
+</aside>
+</div>
