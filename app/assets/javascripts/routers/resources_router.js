@@ -7,9 +7,9 @@ BeeHouse.Routers.Resources = Backbone.Router.extend(
 
     indexResources: function(){
       this.resources = new BeeHouse.Collections.Resources();
-      this.resourcesView = new BeeHouse.Views.ResourcesIndex({model:this.resources});
+      this.resourcesView = new BeeHouse.Views.ResourcesIndex({collection: this.resources});
       this.resources.fetch({reset: true});
-      $('.container').html(this.resourcesView.render().el)
+      $('.container').html(this.resourcesView.render().el);
     },  
 
     showResource: function(){

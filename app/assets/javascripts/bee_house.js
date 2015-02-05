@@ -4,7 +4,8 @@ window.BeeHouse = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new BeeHouse.Routers.Resources();
+    new BeeHouse.Routers.Patrons(); 
+    // new BeeHouse.Routers.Resources();
     Backbone.history.start(
       {pushState: true}
     );

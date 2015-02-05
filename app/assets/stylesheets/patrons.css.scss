@@ -1,3 +1,16 @@
 // Place all the styles related to the PATRONS controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Form Styles 
+
+form label,
+form label input {
+  display: block; 
+}
+
+// Sign in Form 
+
+section.patrons__signup {
+  padding: 1em;
+}
