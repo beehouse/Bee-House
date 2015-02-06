@@ -33,6 +33,6 @@ BeeHouse.Models.Patron = Backbone.Model.extend(
 var BHPatron = BeeHouse.Models.Patron; 
 
 BHPatron.authorize = function(attrs, callback) {
-  var patron = new BeeHousePatron({email: attrs.email});
+  var patron = new BHPatron({email: attrs.email});
   patron.authenticate(attrs.password, callback);
 }
