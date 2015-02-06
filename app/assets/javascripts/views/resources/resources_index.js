@@ -9,8 +9,8 @@ BeeHouse.Views.ResourcesIndex = Backbone.View.extend({
   render: function(eventName){
     $(this.el).html(this.template({resources: this.collection.models}));
 
-    _.each(this.model.models, function(resource) {
-      this.$('.book__list').append(new BeeHouseResourcesItemView({model: resource}).render().el)
+    _.each(this.collection.models, function(resource) {
+      this.$('.book__list').append(new BeeHouseResourcesItemView({model: resource}).render().el);
      }, this);
  
     return this;

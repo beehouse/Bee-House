@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :resources
     resources :patrons
     resources :loans 
-    resources :holds 
+    resources :holds
+    resource :session, :only => [:new, :create, :destroy] 
   end 
 
   match '*path', to: 'application#index', via: :get 

@@ -1,8 +1,7 @@
 BeeHouse.Collections.Patrons = Backbone.Collection.extend({
 
-  model: BeeHouse.Models.Patron,
-  url: '/api/patrons'
+  model: BeeHouse.Models.Patron
 
 });
 
-var BeeHousePatrons = BeeHouse.Collections.Patrons; 
+var BHPatrons = BeeHouse.Collections.Patrons; 

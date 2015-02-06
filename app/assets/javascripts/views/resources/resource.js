@@ -8,11 +8,11 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
 
     },
     render: function() {
-      $(this.el).html(this.template({book: this.model}))
+      $(this.el).html(this.template({book: this.model}));
       return this; 
     },
     reserveBook: function(e) {
-      console.log(this.model.attributes.id);  
+      console.log(this.model.get('id'));  
     }
   }
 );

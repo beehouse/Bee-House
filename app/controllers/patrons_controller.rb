@@ -11,10 +11,7 @@ class PatronsController < ApplicationController
   end
 
   def create 
-    ap p = Patron.create(user_params)  
-    binding.pry 
-
-    @patron = p 
+    @patron = Patron.create(user_params)
   end 
 
     private 
