@@ -8,8 +8,6 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
   render: function(){
     
     $(this.el).html(this.template({user: this.model.toJSON()}));
-    console.log(this.model);
-    console.log('this.model')
      _.each(this.model.get('resources'), function(loanedBook) {
        this.$('#paton-loans-list').append(new LoanItemView({model: loanedBook}).render().el);
     }, this)

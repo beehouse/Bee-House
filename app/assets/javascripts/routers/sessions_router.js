@@ -1,7 +1,7 @@
 BeeHouse.Routers.Sessions = Backbone.Router.extend(
   {
     routes: {
-      'signin': 'landingPage'
+      '': 'landingPage'
     },
 
     landingPage: function(){

@@ -5,7 +5,7 @@ BeeHouse.Views.LoanItem = Backbone.View.extend(
       'click button.book__renew': 'renewBook'
     },
     initialize: function(){
-      console.log(this.model);
+      
     },
     render: function(){
       $(this.el).html(this.template({resource: this.model}));

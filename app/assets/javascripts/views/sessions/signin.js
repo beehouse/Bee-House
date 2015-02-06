@@ -8,7 +8,7 @@ BeeHouse.Views.Signin = Backbone.View.extend({
     e.preventDefault();
     var submitButton = this.$('button');
     var theForm = this.$('form.signin');
-    console.log(theForm);
+
     if (submitButton.hasClass('disabled') && !(theForm.data('user-authorized'))) {
       return false
     } else {
@@ -22,27 +22,32 @@ BeeHouse.Views.Signin = Backbone.View.extend({
     };
 
     BHPatron.authorize(attrs, function(err, user){
-      if (err) {cachedThis.loginFailure();}
-      else {cachedThis.loginSuccess(user); }
+      if (err) {
+        cachedThis.loginFailure();
+      } else {
+        cachedThis.loginSuccess(user); 
+      }
     });
     return (theForm.data('user-authorized') === true);
   },
   loginSuccess: function(user) {
+    console.log("You succeeded at loggin in!");
     var theForm = this.$('form.signin'); 
     theForm.data('user-authorized', true);
-    console.log(user.get('id'));
+
     BeeHouse.session.set('userId', user.get('id'));
     BeeHouse.session.save();
-    BeeHouse.resourcesRoutes.navigate('/books', true);
+    Backbone.history.navigate('/books', {trigger: true});
   },
   loginFailure: function() {
+    console.log("You failed to log in!!");
     this.$el.animate({left: '-=20'}, 100);
     this.$el.animate({left: '+=40'}, 100);
     this.$el.animate({left: '-=40'}, 100);
     this.$el.animate({left: '+=40'}, 100);
     this.$el.animate({left: '-=20'}, 100);
-    this.emailField.focus();
-    this.submitButton.removeClass('disabled');
+    this.$('input[name=email]').focus();
+    this.$('button').removeClass('disabled');
   },
   render: function(){
     $(this.el).html(this.template());
