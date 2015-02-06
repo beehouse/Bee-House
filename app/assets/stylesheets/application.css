@@ -46,3 +46,6 @@ h4 {
   clear: both;
   margin-bottom: 1em;
 }
+input {
+  font: 1em "Crimson Text";
+}

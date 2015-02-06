@@ -14,3 +14,22 @@ form label input {
 section.patrons__signup {
   padding: 1em;
 }
+
+// book aside column
+.book__checkout {
+	padding: 2em;
+}
+.checkout__list {
+	padding: 1em;
+}
+.patron__loan {
+	overflow: auto;
+	padding: 1em;
+	border-bottom: 1px solid black;
+}
+.patron__due {
+	text-align: right;
+}
+.book__renew {
+	float: right;
+}
