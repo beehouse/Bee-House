@@ -21,7 +21,7 @@ BeeHouse.Views.Signin = Backbone.View.extend({
       password: this.$('input[name=password]').val()
     };
 
-    BeeHousePatron.authorize(attrs, function(err, user){
+    BHPatron.authorize(attrs, function(err, user){
       if (err) {cachedThis.loginFailure();}
       else {cachedThis.loginSuccess(user); }
     });
