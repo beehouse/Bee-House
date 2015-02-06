@@ -17,7 +17,7 @@ BeeHouse.Views.SignupView = Backbone.View.extend(
     signupPatron: function(e){
       e.preventDefault();
       var cachedThis = this,  
-        patron = new BeeHousePatron(this.getAttributes());
+        patron = new BHPatron(this.getAttributes());
         console.log(JSON.stringify(patron.toJSON())); 
 
         patron.save(null, 
