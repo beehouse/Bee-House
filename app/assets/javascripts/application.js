@@ -22,3 +22,11 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+Backbone.View.prototype.close = function() {
+  if (this.beforeClose){
+    this.beforeClose();
+  }
+  this.remove();
+  this.unbind();
+};

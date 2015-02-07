@@ -28,25 +28,29 @@ amanda =
 Patron.create name: "Amanda Kielley", 
              email: "eatingfoil@gmail.com",
             password: "password",
-            password_confirmation: "password" 
+            password_confirmation: "password", 
+            admin: false  
 
 clay = 
 Patron.create name: "Clayton Albachten", 
               email: "clay.reed.a@gmail.com",
               password: "password",
-              password_confirmation: "password"
+              password_confirmation: "password",
+              admin: true
 
 cheryl = 
 Patron.create name: "Cheryl Wu",
             email: "grungerabbit@gmail.com",
             password: "password",
-            password_confirmation: "password"
+            password_confirmation: "password", 
+            admin: true 
 
 nick = 
 Patron.create name: "Thomas Delahaye",
               email: "minimalistcouch@gmail.com",
               password: "password", 
-              password_confirmation: "password"
+              password_confirmation: "password", 
+              admin: false 
 
 green = 
 Resource.create quantity: 1,
@@ -64,7 +68,7 @@ Resource.create quantity: 1,
                available: 1,
                title: "A Dream of Passion: The Development of the Method",
                creator: "Lee Strasberg",
-               description: "The Stanislavsky method is a set of practices used to bring an actor into a state where inspiration is most likely to occur. Dramaturge Lee Strasberg recounts the biographical events, intellectual influences and educational work responsible for his conversion and refinements to the method. This copy has been inscribed as a gift to previous a owner's close friend for his 26th birthday.", 
+               description: "The Stanislavsky method is a set of practices used to bring an actor into a state where inspiration is most likely to occur. Dramaturge Lee Strasberg recounts the biographical events, intellectual influences and educational work responsible for his conversion and refinements to the method. This copy has been inscribed as a gift by a close friend of the previous owner for his 26th birthday.", 
                publisher: "Little, Brown & Company",
                date: Date.new(1987),
                format: "hardcover",

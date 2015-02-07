@@ -3,7 +3,7 @@ BeeHouse.Models.Loan = Backbone.Model.extend(
     idAttribute: 'id',
     urlRoot: '/api/loans',
     renew: function(callback){
- 
+  
       var dateStr = this.get('ends');
       var date = new Date(dateStr);
       // 1. coerce `date` into integer 

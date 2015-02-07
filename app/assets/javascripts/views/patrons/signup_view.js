@@ -51,4 +51,4 @@ BeeHouse.Views.SignupView = Backbone.View.extend(
   }
 );
 
-var BeeHouseSignup = BeeHouse.Views.SignupView; 
+var BHSignup = BeeHouse.Views.SignupView; 

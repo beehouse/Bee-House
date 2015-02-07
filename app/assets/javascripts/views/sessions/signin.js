@@ -37,7 +37,14 @@ BeeHouse.Views.Signin = Backbone.View.extend({
 
     BeeHouse.session.set('userId', user.get('id'));
     BeeHouse.session.save();
-    Backbone.history.navigate('/books', {trigger: true});
+    if (BeeHouse.session.get('redirectedFrom')) {
+      var path = BeeHouse.session.get('redirectedFrom'); 
+      BeeHouse.session.unset('redirectedFrom');
+      console.log(path);
+      Backbone.history.navigate(path, {trigger: true})
+    } else {
+      Backbone.history.navigate('/books', {trigger: true});
+    }
   },
   loginFailure: function() {
     console.log("You failed to log in!!");
@@ -50,10 +57,11 @@ BeeHouse.Views.Signin = Backbone.View.extend({
     this.$('button').removeClass('disabled');
   },
   render: function(){
+    console.log("I'm rendering the signin!");
     $(this.el).html(this.template());
     return this; 
   }
 
 });
 
-var BeeHouseSignin = BeeHouse.Views.Signin; 
+var BHSignin = BeeHouse.Views.Signin; 

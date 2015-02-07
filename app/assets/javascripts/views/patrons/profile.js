@@ -26,4 +26,4 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
 
 });
 
-BHPatronProfile = BeeHouse.Views.PatronProfile; 
+BHProfile = BeeHouse.Views.PatronProfile; 
