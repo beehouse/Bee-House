@@ -12,4 +12,10 @@ class HoldsController < ApplicationController
   def create
     respond_with Hold.create(params['hold']) 
   end
+
+  def update
+    @hold = Hold.find(params[:id])
+    ap params 
+    respond_with @hold  
+  end 
 end

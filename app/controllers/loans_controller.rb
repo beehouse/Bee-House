@@ -16,4 +16,21 @@ class LoansController < ApplicationController
   def show
     @loan = Loan.find params[:id]
   end
+
+  def update
+    @loan = Loan.find params[:id]
+    update_params = loan_params 
+    if update_params.include? "ends"
+      update_params["renewals"] = @loan.renewals + 1 
+      @loan.update update_params
+    else
+       @loan.update update_params
+    end   
+  end 
+
+    private 
+
+    def loan_params
+      params.require(:loan).permit(:ends, :patron_id, :resource_id, :began)
+    end 
 end
