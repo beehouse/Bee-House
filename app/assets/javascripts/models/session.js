@@ -23,23 +23,10 @@ BeeHouse.Models.Session = Backbone.Model.extend(
       ); 
     },
     clear: function(){
+
       this.set('authToken', null);
       this.set('userId', null);
       this.save();
-      $.ajax(
-        {
-          type: 'DELETE', 
-          url: '/api/session.json', 
-          data: null, 
-          success: function(error){
-            if (data.error) {
-              console.log("I couldn't destroy the session!");
-            } else {
-              console.log("I destroyed the session!");
-            } 
-          }
-        }
-      );
     }
   }
 );

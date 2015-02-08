@@ -20,6 +20,7 @@ gem 'devise-token_authenticatable'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
+gem 'colorize'
 
 gem 'bcrypt'
 gem 'rabl-rails'

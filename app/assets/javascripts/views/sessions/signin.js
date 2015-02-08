@@ -37,18 +37,15 @@ BeeHouse.Views.Signin = Backbone.View.extend({
 
     var userId = user.get('id'); 
     var userAuthToken = user.get('authentication_token'); 
-    console.log(user);
-    console.log(userId);
-    console.log(userAuthToken);
+
     BeeHouse.session.set('userId', userId);
     BeeHouse.session.set('authToken', userAuthToken);
     BeeHouse.session.save();
-    console.log(BeeHouse.session.get('authToken'));
-    console.log($.cookie('authentication_token')); 
+ 
     if (BeeHouse.session.get('redirectedFrom')) {
       var path = BeeHouse.session.get('redirectedFrom'); 
       BeeHouse.session.unset('redirectedFrom');
-      console.log(path);
+
       Backbone.history.navigate(path, {trigger: true})
     } else {
       Backbone.history.navigate('/books', {trigger: true});

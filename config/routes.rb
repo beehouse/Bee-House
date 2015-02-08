@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :patrons
     resources :loans 
     resources :holds
-    resource :session, :only => [:create, :destroy] 
+    resource :session, only: :create 
   end 
 
   match '*path', to: 'main#index', via: :get 

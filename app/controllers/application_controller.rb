@@ -5,20 +5,13 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user 
  
-  # before_action :check_auth_token 
-  # before_action :show_hashes
   before_action :check_auth_token
 
     private 
 
-    def show_hashes
-      p session 
-      p cookies 
-    end 
-
     def current_user 
-      if session[:user_id]
-        Patron.find(session[:user_id])
+      if cookies[:user_id]
+        Patron.find(cookies[:user_id])
       else 
         false 
       end 
@@ -28,7 +21,7 @@ class ApplicationController < ActionController::Base
       puts "Certianly sir. Gonna need to see some auth tokens first." 
       if @user = current_user
         their_auth_token = @user.authentication_token 
-        given_auth_token = session[:authentication_token]
+        given_auth_token = cookies[:authentication_token]
         unless (their_auth_token == given_auth_token)
           head status: :unauthorized 
           return false 
@@ -37,15 +30,5 @@ class ApplicationController < ActionController::Base
         head status: :unauthorized 
         return false 
       end  
-    end 
-
-    def create_user_session(user)
-      session[:user_id] = user.id 
-      session[:authentication_token] = user.authentication_token
-    end 
-
-    def destroy_user_session
-      session[:user_id] = nil 
-      session[:authentication_token] = nil 
     end 
 end
