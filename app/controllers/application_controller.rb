@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_user 
  
   before_action :check_auth_token 
-  before_action :show_hashes
+  # before_action :show_hashes
   skip_before_action :check_auth_token, only: :index
 
     private 
 
     def show_hashes
-      ap session  
-      # ap cookies 
+      p session 
+      p cookies 
     end 
 
     def current_user 
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end 
 
     def check_auth_token 
-      ap "Certianly sir. Gonna need to see some auth tokens first." 
+      puts "Certianly sir. Gonna need to see some auth tokens first." 
       if @user = current_user
         their_auth_token = @user.authentication_token 
         given_auth_token = session[:authentication_token]

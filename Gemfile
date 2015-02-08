@@ -20,9 +20,7 @@ gem 'devise-token_authenticatable'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-gem 'pry-rails'
-gem 'awesome_print'
-gem 'rename'
+
 gem 'bcrypt'
 gem 'rabl-rails'
 gem 'oj'
@@ -42,7 +40,12 @@ gem 'lodash-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development do 
+  gem 'pry-rails'
+  gem 'awesome_print'
+  gem 'rename'
+  gem 'spring'
+end 
 
 group :production do 
   gem 'pg'
