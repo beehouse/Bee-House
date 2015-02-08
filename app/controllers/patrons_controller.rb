@@ -12,7 +12,12 @@ class PatronsController < ApplicationController
   end
 
   def create 
-    @patron = Patron.create(user_params)
+    @patron = Patron.new(user_params)
+    if @patron.save
+      PatronMailer.welcome_patron(@patron).deliver 
+    else
+      render :json => {:error => "Problems!"}   
+    end 
   end 
 
     private 

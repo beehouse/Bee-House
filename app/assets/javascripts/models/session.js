@@ -23,7 +23,6 @@ BeeHouse.Models.Session = Backbone.Model.extend(
       ); 
     },
     clear: function(){
-
       this.set('authToken', null);
       this.set('userId', null);
       this.save();
