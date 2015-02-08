@@ -6,14 +6,17 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
     this.model.on('change', this.render);
   },
   render: function(){
-    
+    // Add their info 
     $(this.el).html(this.template({user: this.model.toJSON()}));
+
+    // & add their Loans 
      _.each(this.model.get('resources'), function(loanedBook) {
 
       loanData = {
         id: loanedBook.loan_id,
         ends: loanedBook.ends_raw, 
-        title: loanedBook.title, 
+        title: loanedBook.title,
+        renewals: loanedBook.renewals,  
         ends_formatted: loanedBook.ends  
       }; 
       var loanModel = new BHLoan(loanData);

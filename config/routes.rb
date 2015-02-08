@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resource :session, :only => [:create, :destroy] 
   end 
 
-  match '*path', to: 'application#index', via: :get 
+  match '*path', to: 'main#index', via: :get 
 end
