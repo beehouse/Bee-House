@@ -1,7 +1,7 @@
 class ResourcesController < ApplicationController
-  respond_to :json 
-
-  skip_before_action :check_auth_token, only: [:index, :show] 
+  respond_to :json
+  skip_before_action :check_auth_token, only: :index 
+   
   
   def index
     @resources = Resource.all 

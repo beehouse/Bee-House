@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'application#index'
+  root 'main#index'
 
   scope 'api' do 
     get 'loans' => 'loans#index'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :patrons
     resources :loans 
     resources :holds
-    resource :session, :only => [:new, :create, :destroy] 
+    resource :session, :only => [:create, :destroy] 
   end 
 
   match '*path', to: 'application#index', via: :get 

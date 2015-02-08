@@ -1,7 +1,6 @@
 class PatronsController < ApplicationController
-
-  respond_to :json 
-  skip_before_action :check_auth_token, only: :create 
+   
+  respond_to :json  
 
   def index
     @patrons = Patron.all 

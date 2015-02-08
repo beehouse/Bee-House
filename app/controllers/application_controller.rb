@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user 
  
-  before_action :check_auth_token 
+  # before_action :check_auth_token 
   # before_action :show_hashes
-  skip_before_action :check_auth_token, only: :index
+  before_action :check_auth_token
 
     private 
 

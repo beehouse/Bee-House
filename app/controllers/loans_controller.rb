@@ -1,6 +1,7 @@
 class LoansController < ApplicationController
   respond_to :json 
   
+  
   def index
     # hack
     @loans =  

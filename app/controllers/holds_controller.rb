@@ -1,5 +1,6 @@
 class HoldsController < ApplicationController
   respond_to :json 
+  
 
   def index
     @holds = Hold.all 
