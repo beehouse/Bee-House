@@ -47,12 +47,11 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       '*default': 'landingPage'
     },
     requiresAuth: ['books', 'books/:id'],
-    preventAccessWhenAuth: ['signup'],
+    preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
       // check if user is authenticated
       // check if path requires auth 
-      console.log(BeeHouse);
-      console.log(BeeHouse.session);
+  
       var isAuth = BeeHouse.session.isAuthenticated();
       console.log("They are authed?  "+isAuth+'!');
       var path = Backbone.history.fragment;
@@ -73,7 +72,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
         console.log("They shouldn't go there if they're logged in! They should be looking at books!");
         Backbone.history.navigate('/books', {trigger: true});
       } else {
-        console.log("Everything's cool!");
+        console.log("Alright, they're cool.");
         return next();
       }
     },

@@ -13,12 +13,17 @@ BeeHouse.Views.Landing = Backbone.View.extend(
     render: function(){
       var path = Backbone.history.fragment; 
       $(this.el).html(this.template({books: this.collection}));
-      if (path === 'signup') {
-        $(this.el).append(this.signup.render().el);
+
+      if (BeeHouse.session.isAuthenticated()) {
+        console.log("Show something different than signin or signup.");
       } else {
-        $(this.el).append(this.signin.render().el);
+        if (path === 'signup') {
+          $(this.el).append(this.signup.render().el);
+        } else {
+          $(this.el).append(this.signin.render().el);
       }
       return this; 
+      };
     },
     showSignup: function(){
       this.signin.close();

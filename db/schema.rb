@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204164020) do
+ActiveRecord::Schema.define(version: 20150207220502) do
 
   create_table "holds", force: true do |t|
     t.integer  "patron_id"
@@ -33,10 +33,11 @@ ActiveRecord::Schema.define(version: 20150204164020) do
   create_table "patrons", force: true do |t|
     t.string   "email"
     t.string   "name"
-    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.string   "encrypted_password"
+    t.string   "authentication_token"
   end
 
   create_table "resources", force: true do |t|

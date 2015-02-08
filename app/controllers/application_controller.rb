@@ -4,27 +4,48 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user 
+ 
+  before_action :check_auth_token 
+  before_action :show_hashes
+  skip_before_action :check_auth_token, only: :index
 
     private 
 
-    def current_user 
-      return @current_user if @current_user
+    def show_hashes
+      ap session  
+      # ap cookies 
+    end 
 
+    def current_user 
       if session[:user_id]
-        @current_user = User.find(session[:user_id])
-      elsif (header = request.headers['Authorization'].to_s.sub('Basic', '')) != ''
-        header = Base64.decode64(header).split(':')
-        username = header.shift 
-        password = header.join(':')
-        @current_user = User.authenticate(username, password)
+        Patron.find(session[:user_id])
+      else 
+        false 
       end 
+    end 
+
+    def check_auth_token 
+      ap "Certianly sir. Gonna need to see some auth tokens first." 
+      if @user = current_user
+        their_auth_token = @user.authentication_token 
+        given_auth_token = session[:authentication_token]
+        unless (their_auth_token == given_auth_token)
+          head status: :unauthorized 
+          return false 
+        end
+      else 
+        head status: :unauthorized 
+        return false 
+      end  
     end 
 
     def create_user_session(user)
       session[:user_id] = user.id 
+      session[:authentication_token] = user.authentication_token
     end 
 
     def destroy_user_session
       session[:user_id] = nil 
+      session[:authentication_token] = nil 
     end 
 end

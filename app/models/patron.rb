@@ -1,8 +1,9 @@
 class Patron < ActiveRecord::Base
-  has_secure_password 
+  devise :database_authenticatable, :token_authenticatable
 
   has_many :loans 
   has_many :holds 
   has_many :resources, through: :loans
 
+  before_save :ensure_authentication_token
 end

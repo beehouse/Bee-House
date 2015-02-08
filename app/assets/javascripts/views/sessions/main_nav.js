@@ -6,8 +6,7 @@ BeeHouse.Views.MainNav = Backbone.View.extend(
     },
     signout: function(e){
       e.preventDefault();
-      BeeHouse.session.set('userId', null);
-      BeeHouse.session.save();
+      BeeHouse.session.clear();
       Backbone.history.navigate('', {trigger: true});
     },
     render: function(){

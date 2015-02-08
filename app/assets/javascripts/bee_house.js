@@ -12,6 +12,7 @@ window.BeeHouse = {
 };
 
 $(document).ready(function(){
+  CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
   BeeHouse.session = new BeeHouseSession();
   BeeHouse.initialize();
 });

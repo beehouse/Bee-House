@@ -5,6 +5,7 @@ BeeHouse.Models.Patron = Backbone.Model.extend(
     defaults: {
       resources: []
     },
+    
     authenticate: function(password, callback) {
       var cachedThis = this;
 
