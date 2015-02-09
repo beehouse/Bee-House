@@ -10,7 +10,6 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
     addToQueue: function(e){
       var that = this; 
 
-      console.log('Creating a holds entity in Rails!');
       // create a hold 
       var resourceId = this.model.get('id');
       var patronId = BeeHouse.session.get('userId'); 
@@ -29,10 +28,22 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
       });
     },
     buttonValue: function(resourceModel){
-      if (resourceModel.get('holds').length === 0){
+
+      var noHolds = _.isEmpty(resourceModel.get('holds')); 
+      var onLoan = !!resourceModel.get('on_loan');
+      var notCheckedOut = !onLoan;
+
+      // debug logic: 
+      // console.log(resourceModel.get('title'));
+      // console.log(resourceModel);
+      // console.log('noHolds: '+noHolds);
+      // console.log('onLoan: '+onLoan);
+      // console.log('notCheckedOut: '+notCheckedOut); 
+
+      if (noHolds && notCheckedOut) {
         return 'Reserve';
       } else {
-        if (resourceModel.isReservedByMe()) {           
+        if (notCheckedOut && resourceModel.isReservedByMe()) {           
           return 'Reserved';
         } else if (resourceModel.isHeldByMe()) {
           return 'Held';

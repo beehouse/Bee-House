@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207220502) do
+ActiveRecord::Schema.define(version: 20150209174413) do
 
   create_table "holds", force: true do |t|
     t.integer  "patron_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150207220502) do
     t.datetime "ends"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "returned",    default: false
   end
 
   create_table "patrons", force: true do |t|
