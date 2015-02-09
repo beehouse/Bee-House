@@ -23,15 +23,10 @@ BeeHouse.Views.ResourcesIndex = Backbone.View.extend({
 
     // add Profile 
 
-    var currentPatron = new BHPatron({
-      id: BeeHouse.session.get('userId')
-    }); 
-
-    currentPatron.fetch().done(function(){
-      var profileView = new BHProfile({model: currentPatron});
-      $(that.el).append(profileView.render().el); 
-    });
- 
+    var currentPatron = BeeHouse.session.get('currentUser');
+    var profileView = new BHProfile({model: currentPatron});
+    $(that.el).append(profileView.render().el); 
+  
     return this;
   }
 });

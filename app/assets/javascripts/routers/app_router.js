@@ -91,16 +91,8 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       // 
     },
     landingPage: function(){
-      var that = this; 
-      var resources = new BeeHouse.Collections.Resources();
-      resources.fetch()
-        .done(function(){
-          var landingPageView = new BeeHouseLanding({collection: resources});
-          that.changeView(landingPageView); // follow & fix
-        }).fail(function(error){
-          console.log("There was an error: \n"+error);
-        });
-         
+      var landingPageView = new BeeHouseLanding();
+      this.changeView(landingPageView);   
     },
     indexResources: function(){
       var that = this; 

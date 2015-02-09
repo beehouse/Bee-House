@@ -6,13 +6,14 @@ BeeHouse.Views.Landing = Backbone.View.extend(
       'click .signinlink': 'showSignin'
     },
     initialize: function(){
+      this.books = $('div.container').data('count');
       this.signin = new BHSignin();
       this.signup = new BHSignup();
-      this.collection.on('reset', this.render, this);
     },
     render: function(){
-      var path = Backbone.history.fragment; 
-      $(this.el).html(this.template({books: this.collection}));
+      var path = Backbone.history.fragment;
+    
+      $(this.el).html(this.template({collectionSize: this.books}));
 
       if (BeeHouse.session.isAuthenticated()) {
         console.log("Show something different than signin or signup.");
