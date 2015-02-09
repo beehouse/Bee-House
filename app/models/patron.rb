@@ -6,4 +6,8 @@ class Patron < ActiveRecord::Base
   has_many :resources, through: :loans
 
   before_save :ensure_authentication_token
+
+  def self.admins 
+    Patron.where admin: true 
+  end 
 end

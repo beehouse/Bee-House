@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Dear Sir or Madame,</h1>
+  <p>I am writing to inform you that <a href="mailto:<%= @patron.email %>"><%= @patron.name %></a> has request a hold be put on <%= @resource.title %>. Hope all is well.</p>
+  <p>sincerely,<br>The Bee</p>
+</body>
+</html>

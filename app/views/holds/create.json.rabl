@@ -1,4 +1,3 @@
 object :@hold 
 
-attributes :patron_id, :resource_id, :id 
-  # :reserved  
+attributes :patron_id, :resource_id, :id   

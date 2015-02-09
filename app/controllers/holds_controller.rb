@@ -1,7 +1,6 @@
 class HoldsController < ApplicationController
   respond_to :json 
   
-
   def index
     @holds = Hold.all 
   end
@@ -11,14 +10,14 @@ class HoldsController < ApplicationController
   end
 
   def create
-    @hold = Hold.create(create_holds_params) 
+    @hold = Hold.new(create_holds_params)
+    if @hold.save
+      render :create  
+      AdminMailer.notify_of_hold(@hold).deliver
+    else
+      render :json => {:error => "Problems!"}  
+    end 
   end
-
-  def update
-    @hold = Hold.find(params[:id])
-    @hold.update(params['hold'])
-    respond_with @hold  
-  end 
 
     private 
 
