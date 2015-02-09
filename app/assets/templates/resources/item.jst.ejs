@@ -7,6 +7,6 @@
     <p class="book__creator"><%= book.creator %></p>
     <blockquote class="book__description"><%= book.description %></blockquote>
   </section> 
-  <button class="<%= (book.holds.length === 0) ? 'book__reserve' : 'book__hold'%>"><%= (book.holds.length === 0) ? 'Reserve' : 'Hold' %></button>
+  <button class="<%= buttonIsDisabled(thisModel) || 'book__hold' %>"><%= buttonValue(thisModel) %></button>
   <em class="book__more-info">More Info</em>
 </li>
