@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic);
 * {
   margin: 0;
@@ -22,6 +23,10 @@
 }
 body {
   font: 1em "Crimson Text";
+}
+p {
+  line-height: 1.5;
+  font-size: 1.15em;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
@@ -38,6 +43,18 @@ h3 {
 h4 {
   font-size: 125%;
 }
+a {
+  text-decoration: none;
+  padding: 0.05em;
+}
+a:link, a:visited, a:active {
+  color: black;
+  border-bottom: 1px solid black;
+  transition: 0.1s border-bottom;
+}
+a:hover {
+  border-bottom: 3px solid #FFDC0B;
+}
 .wrapper {
   width: 90%;
   margin: auto;
@@ -47,7 +64,15 @@ h4 {
   margin-bottom: 1em;
 }
 input {
+  border: 1px dashed black;
+  border-bottom: 3px solid black;
   font: 1em "Crimson Text";
+  padding: 0.5em 0.25em;
+  background: none;
+}
+input:focus {
+  outline: none;
+  border-bottom: 3px solid #FFDC0B;
 }
 button {
   background-color: black;
@@ -59,4 +84,7 @@ button {
 }
 button.disabled {
   background-color: gray; 
+}
+ul {
+  margin: 1em 0;
 }
