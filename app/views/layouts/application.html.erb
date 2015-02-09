@@ -3,6 +3,7 @@
 <head>
   <title>BeeHouse</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,5 +11,12 @@
 
 <%= yield %>
 
+<script>
+
+window.BeeHouseImages = {
+	mainLogo: '<%= image_path("beehouse-main-logo.svg") %>',
+	pgLogo: '<%= image_path("beehouse-pg-logo.svg") %>'
+};
+</script>
 </body>
 </html>
