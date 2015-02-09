@@ -8,7 +8,6 @@ BeeHouse.Views.LoanItem = Backbone.View.extend(
 
     },
     render: function(){
-      console.log(this.model.get('renewals'))
       $(this.el).html(this.template({resource: this.model.toJSON()}));
       return this; 
     },
