@@ -1,6 +1,8 @@
 class HoldsController < ApplicationController
   respond_to :json 
-  
+
+  before_action :check_admin, only: [:index, :show] # destroy when loaned 
+                                                    # or have user cancel hold  
   def index
     @holds = Hold.all 
   end
@@ -12,8 +14,8 @@ class HoldsController < ApplicationController
   def create
     @hold = Hold.new(create_holds_params)
     if @hold.save
+      AdminMailer.notify_of_hold(@hold.resource_id, @hold.patron_id).deliver_later!(wait: 1.minute)
       render :create  
-      AdminMailer.notify_of_hold(@hold).deliver
     else
       render :json => {:error => "Problems!"}  
     end 
@@ -23,5 +25,11 @@ class HoldsController < ApplicationController
 
     def create_holds_params
       params.permit(:patron_id, :resource_id) 
+    end 
+
+    def check_admin
+      unless current_user.admin?
+        head status: :unauthorized
+      end 
     end 
 end

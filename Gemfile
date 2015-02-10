@@ -3,12 +3,14 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.2'
 # Use sqlite3 as the database for Active Record
 
 group :development, :test do
   gem 'sqlite3' 
 end 
+
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -22,9 +24,13 @@ gem 'devise-token_authenticatable'
 # gem 'therubyracer',  platforms: :ruby
 gem 'colorize'
 
+gem 'sidekiq'
+
 gem 'bcrypt'
 gem 'rabl-rails'
 gem 'oj'
+
+gem 'redis'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -48,7 +54,7 @@ gem 'awesome_print'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do 
   gem 'rename'
-  gem 'spring'
+  # gem 'spring'
 end 
 
 group :production do 

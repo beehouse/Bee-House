@@ -13,10 +13,11 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.active_job.queue_adapter = :sidekiq
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true 
   # config.action_mailer.default_url_options = {:host => 'localhost:300'}
-
+  # config.action_mailer.async = true 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',

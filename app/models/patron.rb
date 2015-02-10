@@ -10,4 +10,8 @@ class Patron < ActiveRecord::Base
   def self.admins 
     Patron.where admin: true 
   end 
+
+  def admin?
+    self.admin 
+  end 
 end

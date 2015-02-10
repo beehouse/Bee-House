@@ -14,7 +14,7 @@ class PatronsController < ApplicationController
   def create 
     @patron = Patron.new(user_params)
     if @patron.save
-      PatronMailer.welcome_patron(@patron).deliver 
+      PatronMailer.welcome_patron(@patron.id).deliver_later!(wait: 1.minute) 
     else
       render :json => {:error => "Problems!"}   
     end 

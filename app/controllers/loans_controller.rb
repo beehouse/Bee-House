@@ -1,17 +1,12 @@
 class LoansController < ApplicationController
-  respond_to :json 
+  respond_to :json
+
+  before_action :check_admin, only: [:index, :show, :create] # don't destroy loans, 
+                                                             # return them
   
   
   def index
-    # hack
-    @loans =  
-    if params[:patron_id]
-      Patron.find(params[:patron_id]).loans  
-    elsif params[:resource_id]
-      Resource.find(params[:resource_id]).loans 
-    else
-      Loan.all 
-    end 
+    @loans = Loan.all
   end
 
   def show
@@ -33,5 +28,11 @@ class LoansController < ApplicationController
 
     def loan_params
       params.require(:loan).permit(:ends, :patron_id, :resource_id, :began)
+    end 
+
+    def check_admin
+      unless current_user.admin?
+        head status: :unauthorized
+      end 
     end 
 end
