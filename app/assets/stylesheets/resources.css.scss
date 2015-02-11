@@ -42,6 +42,13 @@
   float: left;
   padding: 0.5em;
 }
+.book__hold-info {
+  height: 4em;
+  float: left;
+  .book__due-on {
+    display: block; 
+  } 
+}
 .book__thumbnail {
   float: left;
 }

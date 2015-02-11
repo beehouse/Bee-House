@@ -6,7 +6,12 @@
     <h4 class="book__title"><%= book.title %></h4>
     <p class="book__creator"><%= book.creator %></p>
     <blockquote class="book__description"><%= book.description %></blockquote>
-  </section> 
-  <button class="<%= buttonIsDisabled(thisModel) || 'book__hold' %>"><%= buttonValue(thisModel) %></button>
+  </section>
+  <div class="book__hold-info">
+  <% if (book.on_loan){ %>
+    <em class="book__due-on">Due <%= book.on_loan.due_on %></em>
+  <% } %> 
+    <button class="<%= buttonIsDisabled(thisModel) || 'book__hold' %>"><%= buttonValue(thisModel) %></button>
+  </div>
   <em class="book__more-info">More Info</em>
 </li>

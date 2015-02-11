@@ -64,6 +64,7 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
       }
     },
     render: function() {
+      console.log(this.model.get('loans'));
 
       $(this.el).html(this.template(
         {

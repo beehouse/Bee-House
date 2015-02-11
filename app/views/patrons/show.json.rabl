@@ -9,7 +9,7 @@ node do |patron|
       resource = JSON.parse(Resource.find(loan.resource_id).to_json)
       resource["ends_raw"] = loan.ends 
       resource["renewals"] = loan.renewals   
-      resource["ends"] = loan.ends.strftime('%-m/%d/%y') 
+      resource["ends"] = loan.ends.strftime('%-d/%-m/%y') 
       resource["loan_id"] = loan.id
       resource 
     }  
