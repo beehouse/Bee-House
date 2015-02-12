@@ -21,7 +21,7 @@ BeeHouse.Views.MainNav = Backbone.View.extend(
     },
     render: function(){
       var currentUser = BeeHouse.session.get('currentUser');
-      console.log(currentUser);
+ 
       $(this.el).html(this.template({currentUser: currentUser}));
       return this; 
     }

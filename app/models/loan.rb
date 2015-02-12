@@ -10,6 +10,10 @@ class Loan < ActiveRecord::Base
     !self.returned 
   end 
 
+  def return 
+    self.update returned: true 
+  end 
+
   def to_h 
     {
       id: self.id, 
@@ -18,8 +22,11 @@ class Loan < ActiveRecord::Base
       resource_id: self.resource_id,
       ends: self.ends, 
       began: self.began,
+      title: self.resource.title, 
+      renewals: self.renewals,
       returned: self.returned,
-      due_on: self.ends.strftime('%-d/%-m/%Y')   
+      due_on: self.ends.strftime('%-d/%-m/%Y'),
+      ends_formatted: self.ends.strftime('%-d/%-m/%Y')
     }
   end 
 end

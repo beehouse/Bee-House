@@ -1,9 +1,7 @@
 class LoansController < ApplicationController
   respond_to :json
 
-  before_action :check_admin, only: [:index, :show, :create] # don't destroy loans, 
-                                                             # return them
-  
+  before_action :check_admin, only: [:index, :show, :create, :destroy] 
   
   def index
     @loans = Loan.all
@@ -22,6 +20,16 @@ class LoansController < ApplicationController
     else
        @loan.update update_params
     end   
+  end 
+
+  def destroy 
+    # loans are not removed from db but returned 
+    @loan = Loan.find(params[:id]) 
+    if @loan.return 
+      render :show 
+    else 
+      render :json => {:error => "Problems!"}  
+    end 
   end 
 
     private 

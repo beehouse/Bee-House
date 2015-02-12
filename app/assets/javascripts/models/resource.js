@@ -45,9 +45,7 @@ BeeHouse.Models.Resource = Backbone.Model.extend(
         var firstInLine = _.first(queue).patron_id;
         var currentUser = parseInt(BeeHouse.session.get('userId')); 
         var isFirstInLine =  currentUser === firstInLine;
-        console.log(firstInLine);
-        console.log(currentUser);
-        console.log(isFirstInLine);
+
         return isFirstInLine;        
       }
     }

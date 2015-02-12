@@ -14,4 +14,10 @@ class Patron < ActiveRecord::Base
   def admin?
     self.admin 
   end 
+
+  def current_loans 
+    self.loans.select(&:out?).map &:to_h  
+  end 
 end
+
+

@@ -10,16 +10,16 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
     $(this.el).html(this.template({user: this.model.toJSON()}));
 
     // & add their Loans 
-     _.each(this.model.get('resources'), function(loanedBook) {
+     _.each(this.model.get('current_loans'), function(loanedBook) {
 
-      loanData = {
-        id: loanedBook.loan_id,
-        ends: loanedBook.ends_raw, 
-        title: loanedBook.title,
-        renewals: loanedBook.renewals,  
-        ends_formatted: loanedBook.ends  
-      }; 
-      var loanModel = new BHLoan(loanData);
+      // loanData = {
+      //   id: loanedBook.loan_id,
+      //   ends: loanedBook.ends_raw, 
+      //   title: loanedBook.title,
+      //   renewals: loanedBook.renewals,  
+      //   ends_formatted: loanedBook.ends  
+      // }; 
+      var loanModel = new BHLoan(loanedBook);
  
       this.$('#paton-loans-list').append(new LoanItemView({model: loanModel}).render().el);
     }, this)

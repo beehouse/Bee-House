@@ -43,11 +43,12 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       'books/:id': 'showResource',
       'admin': 'showAdminPanel',
       '': 'landingPage',
+      'signout': 'signoutPatron',
       'signin': 'landingPage',
       'signup': 'landingPage',
       '*default': 'landingPage'
     },
-    requiresAuth: ['books', 'books/:id', 'admin'],
+    requiresAuth: ['books', 'books/:id', 'admin', 'signout'],
     preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
       // check if user is authenticated
@@ -75,9 +76,8 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
         Backbone.history.navigate('/books', {trigger: true});
       } else {
         console.log("Alright, they're cool.");
-        return BeeHouse.session.getCurrentUser(function(){
-          return next();
-        });
+        
+        return next();
       }
     },
     after: function(){},
@@ -105,7 +105,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       resources.fetch()
         .done(function(){
           var resourcesView = new BeeHouse.Views.ResourcesIndex({collection: resources});
-          that.changeView(resourcesView); // follow & fix 
+          that.changeView(resourcesView); 
         }).fail(function(error){
           console.log("There was an error!:"); 
           console.log(error);
@@ -113,6 +113,10 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     }, 
     showResource: function(){
       console.log("There is a resource!");
+    },
+    signoutPatron: function(){
+      BeeHouse.session.clear(); 
+      Backbone.history.navigate('', {trigger: true});
     },
     showAdminPanel: function(){
       var currentUser = BeeHouse.session.get('currentUser');

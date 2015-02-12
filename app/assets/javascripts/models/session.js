@@ -7,9 +7,6 @@ BeeHouse.Models.Session = Backbone.Model.extend(
     },
     initialize: function() {
       this.load();
-      this.getCurrentUser(function(){
-        console.log("session loaded the current user's information from the cookies & got their info back from the server.");
-      });
     },
     isAuthenticated: function(){
       return !!this.get('authToken');
@@ -18,9 +15,11 @@ BeeHouse.Models.Session = Backbone.Model.extend(
       var that = this;  
       if (this.get('userId') && this.get('authToken')) { 
         this.get('currentUser').set('id', this.get('userId'))
-          .fetch().done(function(){
-            callback()
-          });
+          .fetch(
+            {
+              success: callback
+            }
+          );
       } else {
         callback();
       }

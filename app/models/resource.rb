@@ -12,5 +12,4 @@ class Resource < ActiveRecord::Base
   def on_loan
     current_loan ? current_loan.to_h : false 
   end 
-
 end
