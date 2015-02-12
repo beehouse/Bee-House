@@ -1,6 +1,6 @@
 BeeHouse.Models.Resource = Backbone.Model.extend(
   {
-    rootUrl: '/api/resources',
+    urlRoot: '/api/resources',
     isCheckedOutByMe: function(){
       var onLoan = this.get('on_loan');
       
@@ -53,3 +53,5 @@ BeeHouse.Models.Resource = Backbone.Model.extend(
     }
   }
 );
+
+var BHResource = BeeHouse.Models.Resource; 

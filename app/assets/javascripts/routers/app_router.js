@@ -41,12 +41,13 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     routes: {
       'books': 'indexResources',
       'books/:id': 'showResource',
+      'admin': 'showAdminPanel',
       '': 'landingPage',
       'signin': 'landingPage',
       'signup': 'landingPage',
       '*default': 'landingPage'
     },
-    requiresAuth: ['books', 'books/:id'],
+    requiresAuth: ['books', 'books/:id', 'admin'],
     preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
       // check if user is authenticated
@@ -55,25 +56,28 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       var isAuth = BeeHouse.session.isAuthenticated();
       console.log("They are authed?  "+isAuth+'!');
       var path = Backbone.history.fragment;
+      var sayPath = path === '' ? 'the root view' : path; 
       var needAuth = _.contains(this.requiresAuth, path);
       var cancelAccess = _.contains(this.preventAccessWhenAuth, path);
-      console.log("They need auth?  "+needAuth+'!')
+      console.log("They need auth?  "+needAuth+'!'); 
       if (needAuth) {
-        console.log("Because they need auth to view "+path+'!');
+        console.log("Because they need auth to view "+sayPath+'!');
       } else {
-        console.log("Because they don't need auth to view "+path+'!');
+        console.log("Because they don't need auth to view "+sayPath+'!');
       }
       if(needAuth && !isAuth){
         console.log("They need auth and don't have it!");
         BeeHouse.session.set('redirectedFrom', path);
-        console.log("If they get some auth I will redirect them to "+path+'...');
+        console.log("If they get some auth I will redirect them to "+sayPath+'...');
         Backbone.history.navigate('', {trigger: true}); 
       } else if (isAuth && cancelAccess){
         console.log("They shouldn't go there if they're logged in! They should be looking at books!");
         Backbone.history.navigate('/books', {trigger: true});
       } else {
         console.log("Alright, they're cool.");
-        return next();
+        return BeeHouse.session.getCurrentUser(function(){
+          return next();
+        });
       }
     },
     after: function(){},
@@ -103,13 +107,34 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
           var resourcesView = new BeeHouse.Views.ResourcesIndex({collection: resources});
           that.changeView(resourcesView); // follow & fix 
         }).fail(function(error){
-          console.log("There was an error: \n"+error); 
+          console.log("There was an error!:"); 
+          console.log(error);
         });
     }, 
     showResource: function(){
       console.log("There is a resource!");
+    },
+    showAdminPanel: function(){
+      var currentUser = BeeHouse.session.get('currentUser');
+      var isAdmin = currentUser.get('admin');
+      console.log('currentUser: ')
+      console.log(currentUser); 
+      console.log('They are admin?:  '+isAdmin+'!');
+      if (isAdmin) {
+        var that = this;
+        var holds = new BHHolds();
+        holds.fetch()
+          .done(function(){
+            var adminPanel = new BHAdminPanel({collection: holds});
+            that.changeView(adminPanel);
+          }).fail(function(error){
+            console.log("There was an error!:");
+            console.log(error);
+          });
+      } else {
+        Backbone.history.navigate('/books', {trigger: true}); 
+      }
     } 
-
   }
 );
 

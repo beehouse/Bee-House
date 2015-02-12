@@ -1,3 +1,55 @@
 // Place all the styles related to the holds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-books header {
+  clear: both;
+  overflow: auto;  
+}
+
+li.admin-book {
+  overflow: auto;
+}
+
+div.admin-book__info {
+}
+
+section.admin-book__holds {
+  width: 50%; 
+}
+
+section.admin-book__holds,
+section.admin-book__loan {
+  float: left;
+}
+
+section.admin-book__loan {
+  margin-left: 2em
+}
+
+.admin-book__loan,
+.admin-book__holds,
+.admin-hold__holdee {
+  overflow: auto;
+  h2 {
+    clear: both;
+  }
+}
+
+.admin-hold__created_at {
+  float: right
+}
+
+.admin-book__loan-due_on {
+  display: block; 
+}
+
+.admin-book__holds-queue {
+  li {
+    width: 80%;
+  }
+}
+
+.admin-hold {
+  font-size: 1.6rem;
+}

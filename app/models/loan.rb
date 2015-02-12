@@ -14,6 +14,7 @@ class Loan < ActiveRecord::Base
     {
       id: self.id, 
       patron_id: self.patron_id,
+      patron_name: self.patron.name, 
       resource_id: self.resource_id,
       ends: self.ends, 
       began: self.began,

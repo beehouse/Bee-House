@@ -1,0 +1,25 @@
+<li class="admin-book">
+<div class="admin-book__info">
+    <section class="admin-book__holds">
+      <h1><%= resource.title %></h1>
+      <ul class="admin-book__holds-queue">
+        <% for (var idx in holds) {%>
+        <% var hold = holds[idx].toJSON(); %>
+          <li class="admin-hold">
+            <span class="admin-hold__holdee">- <%= hold.holdee %></span>
+            <span class="admin-hold__created_at"><%= hold.made_on %></span>
+          </li>
+        <% } %> 
+      </ul>
+    </section>
+    <% if (onLoan) {%>
+    <section class="admin-book__loan">
+      <h2>currently checked out - <%= onLoan.patron_name %></h2>
+      
+      <span class="admin-book__loan-due_on">due back on <%= onLoan.due_on %></span>
+        
+      <button>notify <%= firstInLine %></button>
+    </section>
+    <% } %>
+  </div>
+</li>

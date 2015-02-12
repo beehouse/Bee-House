@@ -1,5 +1,9 @@
 <ul>
   <li>
     <a class="signout" href="/signout">Sign Out</a>
+    <a class="books" href="/books">Books</a>
+  <% if(currentUser.isAdmin()){ %>
+    <a class="admin" href="/admin">Current Activity</a>
+  <% } %>
   </li>
 </ul>
