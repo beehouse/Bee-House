@@ -47,18 +47,36 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       'signin': 'landingPage',
       'signup': 'landingPage',
       '*default': 'landingPage'
-    },
-    requiresAuth: ['books', 'books/:id', 'admin', 'signout'],
+    }, 
+    // Use regex in requiresAuth for dynamic paths 
+    // e.g. if books/:id, /^books\/[1-9][0-9]*$/ 
+    requiresAuth: ['books', 'admin', 'signout'],
+    redirectToAfter: [/^books\/[1-9][0-9]*$/],
     preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
       // check if user is authenticated
       // check if path requires auth 
-  
       var isAuth = BeeHouse.session.isAuthenticated();
       console.log("They are authed?  "+isAuth+'!');
       var path = Backbone.history.fragment;
-      var sayPath = path === '' ? 'the root view' : path; 
-      var needAuth = _.contains(this.requiresAuth, path);
+      var sayPath = path === '' ? 'the root view' : path;
+
+      // needed a Underscore predicate so used _.some()
+      var needAuth = _.some(this.requiresAuth, function(requireAuthPath){
+        if (_.isRegExp(requireAuthPath)) {
+          return requireAuthPath.test(path); 
+        } else {
+          return path === requireAuthPath; 
+        }
+      });
+
+      var redirectToAfter = _.some(this.redirectToAfter, function(redirectToAfterPath){
+        if (_.isRegExp(redirectToAfterPath)) {
+          return redirectToAfterPath.test(path);
+        } else {
+          return redirectToAfterPath === path; 
+        }
+      });
       var cancelAccess = _.contains(this.preventAccessWhenAuth, path);
       console.log("They need auth?  "+needAuth+'!'); 
       if (needAuth) {
@@ -76,6 +94,10 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
         Backbone.history.navigate('/books', {trigger: true});
       } else {
         console.log("Alright, they're cool.");
+        if(redirectToAfter && !isAuth) {
+          console.log("If they log in I'll send 'em back here.");
+          BeeHouse.session.set('redirectedFrom', path);
+        }
         
         return next();
       }
@@ -92,7 +114,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       setView(view);
     },
     fetchError: function(error){
-      // 
+      // Handle fetch error 
     },
     landingPage: function(){
       var landingPageView = new BeeHouseLanding();
@@ -111,8 +133,16 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
           console.log(error);
         });
     }, 
-    showResource: function(){
-      console.log("There is a resource!");
+    showResource: function(resourceId){
+      var that = this; 
+      
+      var resource = new BHResource({id: resourceId});
+      resource.fetch()
+        .done(function(){
+          var resourcePage = new BHResourcePage({model: resource});
+
+          that.changeView(resourcePage);
+        });
     },
     signoutPatron: function(){
       BeeHouse.session.clear(); 
@@ -121,9 +151,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     showAdminPanel: function(){
       var currentUser = BeeHouse.session.get('currentUser');
       var isAdmin = currentUser.get('admin');
-      console.log('currentUser: ')
-      console.log(currentUser); 
-      console.log('They are admin?:  '+isAdmin+'!');
+
       if (isAdmin) {
         var that = this;
         var holds = new BHHolds();

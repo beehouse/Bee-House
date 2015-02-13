@@ -42,11 +42,11 @@ BeeHouse.Views.Signin = Backbone.View.extend({
     BeeHouse.session.set('authToken', userAuthToken);
     BeeHouse.session.save();
     BeeHouse.session.getCurrentUser(function(){
-      console.log('session got the current user after login success!');
+
       if (BeeHouse.session.get('redirectedFrom')) {
         var path = BeeHouse.session.get('redirectedFrom'); 
         BeeHouse.session.unset('redirectedFrom');
-        Backbone.history.navigate(path, {trigger: true})
+        Backbone.history.navigate(path, {trigger: true});
       } else {
         Backbone.history.navigate('/books', {trigger: true});
       }
@@ -63,7 +63,6 @@ BeeHouse.Views.Signin = Backbone.View.extend({
     this.$('button').removeClass('disabled');
   },
   render: function(){
-    console.log("I'm rendering the signin!");
     $(this.el).html(this.template());
     return this; 
   }

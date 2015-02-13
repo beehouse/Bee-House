@@ -18,8 +18,15 @@ class ApplicationController < ActionController::Base
     end 
 
     def check_auth_token 
+      ap cookies
       ap cookies[:authentication_token]
       ap cookies[:user_id]
+      ap cookies['user_id']
+      ap cookies['authentication_token']
+      ap cookies['authToken']
+      ap cookies['userId']
+      ap cookies[:userId]
+      ap cookies[:authToken]
       puts "Certianly sir. Gonna need to see some auth tokens first." 
       if @user = current_user
         their_auth_token = @user.authentication_token 

@@ -18,6 +18,14 @@ class Patron < ActiveRecord::Base
   def current_loans 
     self.loans.select(&:out?).map &:to_h  
   end 
+
+  def to_h 
+    {
+      id: self.id, 
+      name: self.name, 
+      email: self.email 
+    }
+  end 
 end
 
 

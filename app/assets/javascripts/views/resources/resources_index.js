@@ -6,8 +6,8 @@ BeeHouse.Views.ResourcesIndex = Backbone.View.extend({
     this.collection.on('reset', this.render, this);
   },
 
-  render: function(eventName){
-    var that = this; 
+  render: function(){
+   
     $(this.el).html(this.template({resources: this.collection.models}));
 
 
@@ -27,7 +27,7 @@ BeeHouse.Views.ResourcesIndex = Backbone.View.extend({
 
     var currentPatron = BeeHouse.session.get('currentUser');
     var profileView = new BHProfile({model: currentPatron});
-    $(that.el).append(profileView.render().el); 
+    $(this.el).append(profileView.render().el); 
   
     return this;
   }

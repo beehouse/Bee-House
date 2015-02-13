@@ -8,9 +8,6 @@ BeeHouse.Views.AdminItem = Backbone.View.extend(
     initialize: function(){
       var that = this;
       this.queue = _.sortBy(this.collection.models, function(hold){
-        console.log(that.model.get('title'));
-        console.log(hold.get('holdee'));
-        console.log(hold.get('created_at'));
         return hold.get('created_at');
       }); 
       this.model.on('change', this.render, this);

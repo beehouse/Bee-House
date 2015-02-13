@@ -12,25 +12,33 @@ BeeHouse.Models.Session = Backbone.Model.extend(
       return !!this.get('authToken');
     },
     getCurrentUser: function(callback){
-      var that = this;  
-      if (this.get('userId') && this.get('authToken')) { 
-        this.get('currentUser').set('id', this.get('userId'))
-          .fetch(
+
+      var userId = this.get('userId');
+      var authToken = this.get('authToken'); 
+
+      if (userId && authToken) { 
+        var currentUser = this.get('currentUser'); 
+        currentUser.set('id', userId); 
+        currentUser.fetch(
             {
-              success: callback
+              success: function(){
+      
+                callback();
+              }
             }
           );
       } else {
+    
         callback();
+        
       }
     },
     save: function(){
-      $.cookie('user_id', this.get('userId'));
-      $.cookie('authentication_token', this.get('authToken')); 
+      $.cookie('user_id', this.get('userId'), { path: '/' });
+      $.cookie('authentication_token', this.get('authToken'), { path: '/' }); 
     },
     load: function(){
       var that = this; 
-
       this.set(
         {
           userId: $.cookie('user_id'),
@@ -41,7 +49,8 @@ BeeHouse.Models.Session = Backbone.Model.extend(
     clear: function(){
       this.set('authToken', null);
       this.set('userId', null);
-      this.save();
+      $.removeCookie('authentication_token', { path: '/' });
+      $.removeCookie('user_id', { path: '/' });
       this.set('currentUser', new BHPatron());
     }
   }

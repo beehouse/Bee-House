@@ -63,9 +63,12 @@ a:hover {
   clear: both;
   margin-bottom: 1em;
 }
+label {
+  margin-top: 0.75em;
+}
 input {
-  border: 1px dashed black;
-  border-bottom: 3px solid black;
+  border: 3px solid black;
+  border-top: none;
   font: 1em "Crimson Text";
   padding: 0.5em 0.25em;
   background: none;

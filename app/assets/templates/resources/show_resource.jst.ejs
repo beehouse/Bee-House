@@ -1,0 +1,15 @@
+<section class="book-details__main">
+  <header>
+    <img src="<%= BeeHouseImages.pgLogo %>" class="beehouse__pg-logo">
+    <nav class="main__nav">
+    </nav>
+  </header>
+  <header class="book-details__header">
+    <h1><%= resource.title %> (<%= resource.year %>)</h1>
+    <h2>by <%= resource.creator %></h2>
+  </header>
+    <p><%= resource.description %></p>
+  <% if (readers) { %>
+    <p><strong>Read by:</strong> <%= showReaders(resource.patrons) %></p>
+  <% } %>  
+</section>

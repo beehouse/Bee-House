@@ -2,10 +2,16 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
   {
     template: JST['resources/item'],
     events: {
-      'click button.book__hold': 'addToQueue'
+      'click button.book__hold': 'addToQueue',
+      'click .book__more-info': 'showBook'
     }, 
     initialize: function() {
       this.model.on('change', this.render, this);
+    },
+    showBook: function(){
+      var resourceId = this.model.get('id');
+      var resourceUrl = 'books/'+resourceId; 
+      Backbone.history.navigate(resourceUrl, {trigger: true});
     },
     addToQueue: function(e){
       var that = this; 

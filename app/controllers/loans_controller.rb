@@ -1,7 +1,7 @@
 class LoansController < ApplicationController
   respond_to :json
 
-  before_action :check_admin, only: [:index, :show, :create, :destroy] 
+  before_action :check_admin, only: [:index, :show, :create, :destroy, :new] 
   
   def index
     @loans = Loan.all

@@ -3,7 +3,8 @@ BeeHouse.Models.Patron = Backbone.Model.extend(
     idAttribute: 'id',
     urlRoot: '/api/patrons',
     defaults: {
-      current_loans: []
+      current_loans: [],
+      admin: false 
     },
     isAdmin: function(){
       return this.get('admin');
