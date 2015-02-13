@@ -1,6 +1,6 @@
 collection :@holds 
 
-attributes :patron_id, :resource_id, :id, :created_at
+attributes :patron_id, :resource_id, :id, :created_at, :notified 
 
 node do |hold|
   {

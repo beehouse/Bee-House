@@ -12,14 +12,17 @@
         <% } %> 
       </ul>
     </section>
-    <% if (onLoan) {%>
+    
     <section class="admin-book__loan">
+    <% if (onLoan) {%>
       <h2>currently checked out - <%= onLoan.patron_name %></h2>
       
       <span class="admin-book__loan-due_on">due back on <%= onLoan.due_on %></span>
-        
-      <button class='return-loan'>notify <%= firstInLine %></button>
+    <% } else { %>
+    <h2>Not currently checked out...</h2>
+    <% } %> 
+      <button class='<%= buttonClass(thisModel, holds) %>'><%= buttonValue(holds) %></button>
     </section>
-    <% } %>
+    
   </div>
 </li>

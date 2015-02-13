@@ -7,6 +7,14 @@ class LoansController < ApplicationController
     @loans = Loan.all
   end
 
+  def new 
+    @hold = Hold.find params[:hold_id] 
+    patron_id = @hold.patron_id
+    resource_id = @hold.resource_id 
+    PatronMailer.notify_patron(patron_id, resource_id).deliver_later!(wait: 1.minute)
+    @hold.update notified: true
+  end 
+
   def show
     @loan = Loan.find params[:id]
   end
@@ -23,7 +31,6 @@ class LoansController < ApplicationController
   end 
 
   def destroy 
-    # loans are not removed from db but returned 
     @loan = Loan.find(params[:id]) 
     if @loan.return 
       render :show 

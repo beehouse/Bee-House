@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209174413) do
+ActiveRecord::Schema.define(version: 20150213003139) do
 
-  create_table "holds", force: true do |t|
+  create_table "holds", force: :cascade do |t|
     t.integer  "patron_id"
     t.integer  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "notified",    default: false
   end
 
-  create_table "loans", force: true do |t|
+  create_table "loans", force: :cascade do |t|
     t.integer  "patron_id"
     t.integer  "resource_id"
     t.integer  "renewals"
@@ -31,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150209174413) do
     t.boolean  "returned",    default: false
   end
 
-  create_table "patrons", force: true do |t|
+  create_table "patrons", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
     t.datetime "created_at"
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150209174413) do
     t.string   "authentication_token"
   end
 
-  create_table "resources", force: true do |t|
+  create_table "resources", force: :cascade do |t|
     t.integer  "quantity"
     t.integer  "available"
     t.string   "title"
