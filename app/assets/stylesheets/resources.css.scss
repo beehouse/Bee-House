@@ -2,19 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.landing__copy, // HACK 
-.books__main {
-  width: 75%;
-  float: left;
-  margin: 1em;
-  padding: 2em;
-  border-right: 10px solid black;
-}
-.books__header {
-  border-bottom: 1px solid black;
-  overflow: auto; //janky clearfix
-}
 .book__pg-title {
   float: left;
 }
@@ -63,6 +50,12 @@
 .book__more-info {
   float: right;
   margin-top: 1.25em;
+  border-bottom: 1px solid black;
+  transition: 0.1s border-bottom;
+}
+.book__more-info:hover {
+  border-bottom: 3px solid #FFDC0B;
+  cursor: pointer;
 }
 .book__description {
   margin: 0.5em 0;

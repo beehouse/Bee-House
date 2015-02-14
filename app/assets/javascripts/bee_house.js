@@ -15,7 +15,8 @@ window.BeeHouse = {
 
 $(document).ready(function(){
   CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-  BeeHouse.session = new BeeHouseSession();
+  BeeHouse.session = new BeeHouseSession(); // look for auth token, 
+                                            // look for user id 
   BeeHouse.session.getCurrentUser(function(){
     BeeHouse.begin();
   }); 

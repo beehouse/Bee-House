@@ -91,3 +91,33 @@ button.disabled {
 ul {
   margin: 1em 0;
 }
+.main__column {
+  width: 75%;
+  float: left;
+  margin: 1em;
+  padding: 2em;
+  border-right: 10px solid black;
+}
+.full__column {
+  margin: 1em;
+  padding: 2em;
+}
+.page__header {
+  border-bottom: 1px solid black;
+  overflow: auto; //janky clearfix
+}
+
+.page__navigation {
+  position: fixed;
+  width: 25%;
+  height: 25px;
+  top: 0;
+  left: 37.5%;
+  background-color: #FFDC0B;
+  color: white;
+  padding: 0.5em;
+  border-radius: 50px;
+}
+.page__navigation ul {
+  margin: 0;
+}

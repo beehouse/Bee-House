@@ -3,7 +3,7 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
     template: JST['resources/item'],
     events: {
       'click button.book__hold': 'addToQueue',
-      'click .book__more-info': 'showBook'
+      'click .book__more-info': 'showBook' 
     }, 
     initialize: function() {
       this.model.on('change', this.render, this);

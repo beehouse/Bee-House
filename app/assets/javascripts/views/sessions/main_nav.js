@@ -5,7 +5,8 @@ BeeHouse.Views.MainNav = Backbone.View.extend(
       'click .signout': 'signout',
       'click .signin': 'signin',
       'click .admin': 'adminPanel',
-      'click .books': 'booksIndex'
+      'click .books': 'booksIndex',
+      'click .beehouse__pg-logo': 'booksIndex'
     },
     booksIndex: function(e){
       e.preventDefault();

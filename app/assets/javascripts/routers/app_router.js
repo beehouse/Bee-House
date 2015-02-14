@@ -33,12 +33,11 @@ BeeHouse.BaseRouter = Backbone.Router.extend(
   }
 );
 
-
 // AppRouter 
 
 BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
   {
-    routes: {
+    routes: { 
       'books': 'indexResources',
       'books/:id': 'showResource',
       'admin': 'showAdminPanel',
@@ -116,6 +115,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     fetchError: function(error){
       // Handle fetch error 
     },
+    // the VIEWS 
     landingPage: function(){
       var landingPageView = new BeeHouseLanding();
       this.changeView(landingPageView);   
