@@ -6,6 +6,12 @@
   <header class="admin-books__header">
     <h1 class="book__pg-title">Current Activity</h1>
   </header>
+<% if (holdActivity) {%>
   <ul class="admin-books__items">
   </ul>
+<% } else { %>
+  <div class="message no-holds">
+    <p>Nothing much going on...</p>
+  </div> 
+<% } %>
 </section>

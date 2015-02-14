@@ -6,11 +6,16 @@ BeeHouse.Views.AdminPanel = Backbone.View.extend(
 
     },
     render: function(){
-      $(this.el).html(this.template());
+      var holds = this.collection.models;
+      var holdActivity = !_.isEmpty(holds);
+      $(this.el).html(this.template(
+        {
+          holdActivity: holdActivity
+        }
+      ));
       this.$('.main__nav').append(new BeeHouseNav().render().el);
 
-      var holds = this.collection.models;
-   
+     
       var holdsByResource = _.groupBy(holds, function(hold){
         return hold.get('resource_id');
       });

@@ -1,10 +1,7 @@
 BeeHouse.Views.ResourcePage = Backbone.View.extend(
   { 
     template: JST['resources/show_resource'],
-    initialize: function(){
-
-
-    },
+    initialize: function(){},
     showReaders: function(readers){
       var links = _.map(readers, function(reader){
         return '<a href="mailto:'+reader.email+'">'+reader.name+'</a>'; 
