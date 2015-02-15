@@ -1,1 +1,10 @@
-<p>test!</p>
+<h3><%= patron.name %></h3>
+<p><%= patron.email %></p>
+
+<ol>
+<% for (var i = 0; i < patron.resources.length; i++) { %>
+	<li><%= patron.resources[i].title %></li>
+<% } %>
+</ol>
+
+<hr> <!-- temp -->

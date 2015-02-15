@@ -1,3 +1,3 @@
 collection :@patrons 
 
-attributes :id, :name, :email
+attributes :id, :name, :email, :resources
