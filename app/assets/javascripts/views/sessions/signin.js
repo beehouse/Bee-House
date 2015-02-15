@@ -54,11 +54,8 @@ BeeHouse.Views.Signin = Backbone.View.extend({
   },
   loginFailure: function() {
     console.log("You failed to log in!!");
-    this.$el.animate({left: '-=20'}, 100);
-    this.$el.animate({left: '+=40'}, 100);
-    this.$el.animate({left: '-=40'}, 100);
-    this.$el.animate({left: '+=40'}, 100);
-    this.$el.animate({left: '-=20'}, 100);
+    var $input = this.$el.find("input");
+    $input.animate({left: '-=10'}, 75).animate({left: '+=20'}, 50).animate({left: '-=10'}, 100);
     this.$('input[name=email]').focus();
     this.$('button').removeClass('disabled');
   },

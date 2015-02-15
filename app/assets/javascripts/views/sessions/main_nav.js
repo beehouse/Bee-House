@@ -1,3 +1,4 @@
+// active state nav highlighting. what's a better way to do this?
 BeeHouse.Views.MainNav = Backbone.View.extend(
   {
     template: JST['partials/main_nav'],
@@ -33,14 +34,22 @@ BeeHouse.Views.MainNav = Backbone.View.extend(
     render: function(){
       var currentUser = BeeHouse.session.get('currentUser');
       var session = BeeHouse.session.isAuthenticated(); 
+      var currentView = Backbone.history.fragment;
+
  
       $(this.el).html(this.template(
         {
           currentUser: currentUser,
-          session: session 
+          session: session
         }
       ));
 
+      if (currentView == 'admin' || 
+        currentView == 'books' ||
+        currentView == 'patrons') {
+        this.$('.'+currentView).addClass('active');
+      }
+      
       return this; 
     }
   }
