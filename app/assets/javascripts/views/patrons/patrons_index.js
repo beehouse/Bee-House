@@ -5,7 +5,7 @@ BeeHouse.Views.PatronsIndex = Backbone.View.extend({
     this.collection.on('reset', this.render, this);
   },
 
-  render: function(){
+  render: function() {
    
     $(this.el).html(this.template(
       {
@@ -13,30 +13,14 @@ BeeHouse.Views.PatronsIndex = Backbone.View.extend({
       }
     ));
 
-
     // add Nav 
     this.$('.main__nav').append(new BeeHouseNav().render().el);
 
     // add Patrons
     _.each(this.collection.models, function(patron) {
-      this.$('.patrons__list').append("hi")
+      this.$('.patrons__list').append(new BHPatronItem({model: patron}).render().el);
     }, this);
 
-/*
-    // add Resources 
-    _.each(this.collection.models, function(resource) {
-      if (!resource.isCheckedOutByMe()) {
-        this.$('.book__list').append(new BeeHouseResourcesItemView({model: resource}).render().el);
-      }
-     }, this);
-
-
-    // add Profile 
-
-    var currentPatron = BeeHouse.session.get('currentUser');
-    var profileView = new BHProfile({model: currentPatron});
-    $(this.el).append(profileView.render().el); 
-  */
     return this;
   }
 });
