@@ -4,3 +4,5 @@ BeeHouse.Collections.Resources = Backbone.Collection.extend({
   url: '/api/resources'
 
 });
+
+var BHResources = BeeHouse.Collections.Resources; 

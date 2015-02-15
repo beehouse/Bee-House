@@ -1,10 +1,12 @@
-<h3><%= patron.name %></h3>
-<p><%= patron.email %></p>
-
-<ol>
-<% for (var i = 0; i < patron.current_loans.length; i++) { %>
-	<li><%= patron.current_loans[i].title %></li>
-<% } %>
-</ol>
-
-<hr> <!-- temp -->
+<li>
+  <section>
+    <h3><%= patron.name %></h3>
+    <p><%= patron.email %></p>
+    <% if (isAdmin) { %>
+    <button class="new-loans">Check Out</button>
+    <% } %> 
+    <ol class="patron-item-loans">
+    </ol>
+  </section>
+  <hr> <!-- temp -->
+</li>

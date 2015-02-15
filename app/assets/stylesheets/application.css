@@ -90,6 +90,7 @@ button.disabled {
 }
 ul {
   margin: 1em 0;
+  list-style: none;
 }
 .main__column {
   width: 75%;
@@ -110,14 +111,12 @@ ul {
 .page__navigation {
   position: fixed;
   width: 25%;
-  height: 25px;
-  top: 0;
+  height: 45px;
+  top: -15px;
   left: 37.5%;
-  background-color: #FFDC0B;
-  color: white;
-  padding: 0.5em;
-  border-radius: 50px;
+  padding: 1em 0.5em 0.5em;
 }
 .page__navigation ul {
   margin: 0;
+  
 }

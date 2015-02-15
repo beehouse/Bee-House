@@ -13,6 +13,10 @@ window.BeeHouse = {
   }
 };
 
+BeeHouse.Events = {}; 
+var BHEvents = BeeHouse.Events;
+_.extend(BHEvents, Backbone.Events);
+
 $(document).ready(function(){
   CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
   BeeHouse.session = new BeeHouseSession(); // look for auth token, 

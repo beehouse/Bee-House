@@ -15,6 +15,16 @@ class LoansController < ApplicationController
     @hold.update notified: true
   end 
 
+  def create 
+    @loan = Loan.new loan_params 
+    @loan.began = Date.today 
+    @loan.ends = Date.today + 3.weeks
+    @loan.renewals = 0
+    @loan.returned = false  
+    @loan.save
+    ap @loan 
+  end 
+
   def show
     @loan = Loan.find params[:id]
   end

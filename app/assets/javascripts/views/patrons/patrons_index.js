@@ -6,7 +6,7 @@ BeeHouse.Views.PatronsIndex = Backbone.View.extend({
   },
 
   render: function() {
-   
+    $(this.el).addClass('patrons-index-container');
     $(this.el).html(this.template(
       {
         patrons: this.collection.models

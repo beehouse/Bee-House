@@ -50,7 +50,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     }, 
     // Use regex in requiresAuth for dynamic paths 
     // e.g. if books/:id, /^books\/[1-9][0-9]*$/ 
-    requiresAuth: ['books', 'admin', 'signout'],
+    requiresAuth: ['books', 'patrons', 'admin', 'signout'],
     redirectToAfter: [/^books\/[1-9][0-9]*$/],
     preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
