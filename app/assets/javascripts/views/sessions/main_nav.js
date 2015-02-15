@@ -6,11 +6,16 @@ BeeHouse.Views.MainNav = Backbone.View.extend(
       'click .signin': 'signin',
       'click .admin': 'adminPanel',
       'click .books': 'booksIndex',
-      'click .beehouse__pg-logo': 'booksIndex'
+      'click .beehouse__pg-logo': 'booksIndex',
+      'click .patrons': 'patronsIndex'
     },
     booksIndex: function(e){
       e.preventDefault();
       Backbone.history.navigate('books', {trigger: true});
+    },
+    patronsIndex: function(e) {
+      e.preventDefault();
+      Backbone.history.navigate('patrons', {trigger: true});
     },
     signin: function(e){
       e.preventDefault();

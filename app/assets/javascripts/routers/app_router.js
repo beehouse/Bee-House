@@ -41,6 +41,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       'books': 'indexResources',
       'books/:id': 'showResource',
       'admin': 'showAdminPanel',
+      'patrons': 'indexPatrons',
       '': 'landingPage',
       'signout': 'signoutPatron',
       'signin': 'landingPage',
@@ -143,6 +144,32 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
 
           that.changeView(resourcePage);
         });
+    },
+    indexPatrons: function() {
+      var that = this;
+      var patrons = new BeeHouse.Collections.Patrons();
+
+      patrons.fetch()
+        .done(function() {
+          var patronsView = new BeeHouse.Views.PatronsIndex({collection: patrons});
+          that.changeView(patronsView);
+        }).fail(function(error) {
+          console.log("There was an error!");
+          console.log(error);
+        });
+    },
+    showPatrons: function(patronId) {
+
+      // will reinstate later
+      /*var that = this;
+
+      var patrons = new BHPatrons();
+      patrons.fetch()
+        .done(function() {
+          var patronPage = new BHPatrons({model: patronId});
+
+          that.changeView(patronPage);
+        });*/
     },
     signoutPatron: function(){
       BeeHouse.session.clear(); 
