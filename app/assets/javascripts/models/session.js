@@ -7,11 +7,16 @@ BeeHouse.Models.Session = Backbone.Model.extend(
     },
     initialize: function() {
       this.load();
+      this.listenTo(BHEvents, 'reloadCurrentUser', this.getCurrentUser);
     },
     isAuthenticated: function(){
       return !!this.get('authToken');
     },
     getCurrentUser: function(callback){
+      var defaultCallback = function(){
+        console.log('Got the current user');
+      }
+      callback = callback || defaultCallback;
 
       var userId = this.get('userId');
       var authToken = this.get('authToken'); 

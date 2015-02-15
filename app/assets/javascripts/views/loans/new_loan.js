@@ -10,10 +10,9 @@ BeeHouse.Views.NewLoan = Backbone.View.extend(
     },
     createLoan: function(){
       var that = this; 
-      var patronId = this.options.patronId; 
+      var patronId = parseInt(this.options.patronId); 
       var resourceId = this.model.get('id');
-      console.log('patron_id: '+patronId);
-      console.log('resource_id: '+resourceId);
+
 
       var newLoan = new BHLoan({patron_id: patronId, resource_id: resourceId});
       newLoan.save()
@@ -23,6 +22,11 @@ BeeHouse.Views.NewLoan = Backbone.View.extend(
           .removeClass('create-loan')
           .addClass('disabled');
           BHEvents.trigger('newLoanEvent', newLoan.toJSON());
+          var currentUser = BeeHouse.session.get('currentUser'); 
+          var currentUserId = parseInt(currentUser.get('id'));
+          if (currentUserId === patronId){
+            BHEvents.trigger('reloadCurrentUser');
+          }
         }); 
     },
     render: function(){
