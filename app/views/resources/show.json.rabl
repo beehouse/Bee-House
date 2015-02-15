@@ -4,7 +4,7 @@ attributes :id, :title, :creator, :date, :description, :publisher, :quantity, :a
 
 node do |resource|
   {
-    year: resource.date.strftime('%Y'),
+    year: resource.date && resource.date.strftime('%Y'),
     patrons: resource.patrons.map(&:to_h) 
   }
 end 
