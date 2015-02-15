@@ -85,6 +85,12 @@ button {
   font: 1em "Crimson Text";
   margin-top: 0.5em;
   padding: 0.5em 1em;
+  transition: 0.25s background-color;
+}
+button:hover {
+  background-color: #FFDC0B;
+  border-radius: 3px;
+  cursor: pointer;
 }
 button.disabled {
   background-color: #bbb; 
@@ -104,7 +110,7 @@ ul {
   padding: 2em;
 }
 .page__header {
-  border-bottom: 1px solid #222g;
+  border-bottom: 1px solid #222;
   overflow: auto; //janky clearfix
 }
 
@@ -114,9 +120,9 @@ ul {
   height: 28px;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.85);
+  background-color: rgba(255,255,255,0.95);
   padding: 0.5em;
-  border-bottom: 1px solid #FFDC0B;
+  border-top: 1px solid #FFDC0B;
   text-align: center;
 }
 .page__navigation ul {
