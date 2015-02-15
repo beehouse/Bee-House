@@ -48,12 +48,12 @@ a {
   text-decoration: none;
   padding: 0.05em;
 }
-a:link, a:visited, a:active {
+a:link, a:visited {
   color: black;
   border-bottom: 1px solid #222;
   transition: 0.1s border-bottom;
 }
-a:hover {
+a:hover, a:active, a.active {
   border-bottom: 3px solid #FFDC0B;
 }
 .wrapper {
@@ -117,7 +117,7 @@ ul {
   background-color: rgba(255,255,255,0.85);
   padding: 0.5em;
   border-bottom: 1px solid #FFDC0B;
-  text-align: right;
+  text-align: center;
 }
 .page__navigation ul {
   margin: 0;
