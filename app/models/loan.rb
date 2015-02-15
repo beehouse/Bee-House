@@ -2,6 +2,8 @@ class Loan < ActiveRecord::Base
   belongs_to :patron
   belongs_to :resource 
 
+  after_create :destroy_holds 
+
   def returned?
     self.returned 
   end 
@@ -29,4 +31,13 @@ class Loan < ActiveRecord::Base
       ends_formatted: self.ends.strftime('%-d/%-m/%Y')
     }
   end 
+
+    private 
+
+    def destroy_holds
+      Hold.where(
+        patron_id: self.patron_id,
+        resource_id: self.resource_id
+      ).each &:destroy
+    end 
 end
