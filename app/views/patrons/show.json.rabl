@@ -1,10 +1,9 @@
 object :@patron 
 
-attributes :id, :name, :email, :created_at, :admin  
+attributes :id, :name, :email, :created_at, :admin, :current_loans   
 
 node do |patron|
   {
-    :joined => time_ago_in_words(patron.created_at),
-    :current_loans => patron.current_loans
+    :joined => time_ago_in_words(patron.created_at)
   }
 end 
