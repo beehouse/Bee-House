@@ -5,8 +5,15 @@ Rails.application.routes.draw do
   scope 'api' do 
     get 'loans' => 'loans#index'
 
-    resources :resources
-    resources :patrons
+    resources :resources do 
+      resources :reviews 
+    end 
+
+
+    resources :patrons do 
+      resources :reviews 
+    end 
+    
     resources :loans 
     resources :holds
     resource :session, only: :create 

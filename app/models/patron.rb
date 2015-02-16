@@ -11,6 +11,7 @@ class Patron < ActiveRecord::Base
 
   has_many :loans, dependent: :destroy 
   has_many :holds, dependent: :destroy 
+  has_many :reviews  
   has_many :resources, through: :loans
 
   before_save :ensure_authentication_token
