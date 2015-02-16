@@ -13,19 +13,22 @@
       <div class="bd-header__metadata">
         <dl>
           <dt>Year</dt>
-          <dd><%= resource.year %></dd>
+          <dd><%= resource.year %>&nbsp;</dd>
           <dt>Publisher</dt>
-          <dd><%= resource.publisher %></dd>
+          <dd><%= resource.publisher %>&nbsp;</dd>
           <dt>Format</dt>
-          <dd><%= resource.format %></dd>
+          <dd><%= resource.format %>&nbsp;</dd>
           <dt>Language</dt>
-          <dd><%= resource.language %></dd>
+          <dd><%= resource.language %>&nbsp;</dd>
         </dl>
       </div>
       <div class="bd-header__metadata">
         <% if (onLoan) { %>
-      <em><%= onLoan.due_on %></em>
+          <em class="bd__current-loan">Currently on loan. Due back <%= onLoan.due_on %></em>
         <% } %> 
+        <% if (!onLoan) { %>
+          <em class="bd__current-loan">Available to borrow.</em>
+        <% } %>
         <button class="<%= buttonClass(thisResource, isSignedIn) %>"><%= buttonValue(thisResource) %></button>
       </div>
     </div>
@@ -42,14 +45,27 @@
       <button class="bd-interactions__reserve <%= buttonClass(thisResource, isSignedIn) %>"><%= buttonValue(thisResource) %></button>
     <% } %>
   </aside>
-  <article class="book-details__description">
-    <h5 class="bd__libnotes">Librarian Notes</h5>
-    <p><%= resource.description %></p>
-  </article>
-  <article class="book-details__reviews">
-    <h5>Reviews By Readers</h5>
-    <ul class="reviews">
-    
-    </ul>
-  </article>
+  <div class="book-details__main-col">
+    <article class="book-details__description">
+      <h5 class="bd__libnotes">Librarian Notes</h5>
+      <p><%= resource.description %></p>
+    </article>
+
+    <hr>
+
+    <article class="book-details__reviews">
+      <header class="bd-reviews__add-review">
+        <h5 class="bd__libnotes">Reviews By Readers</h5>
+        <button class="add-review__toggle button-secondary">Add your Review</button>
+      </header>
+
+      <section class="add-review__form">
+        <textarea class="add-review__content"></textarea>
+        <button>Submit Review</button>
+      </section>
+
+      <ul class="reviews">
+      </ul>
+    </article>
+  </div>
 </section>

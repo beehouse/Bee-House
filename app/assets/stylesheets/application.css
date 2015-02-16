@@ -43,6 +43,12 @@ h3 {
 h4 {
   font-size: 125%;
 }
+hr {
+  height: 1px;
+  background-color: #222;
+  border: none;
+  margin: 1em 0;
+}
 a {
   text-decoration: none;
   padding: 0.05em;
@@ -66,14 +72,18 @@ a:hover, a:active, a.active {
 label {
   margin-top: 0.75em;
 }
-input {
+input, textarea {
   border: 3px solid #222;
   border-top: none;
   font: 1em "Crimson Text";
   padding: 0.5em 0.25em;
   background: none;
+  transition: 0.25s border-color;
 }
-input:focus {
+input:hover, textarea:hover {
+  border-color: #bbb;
+}
+input:focus, textarea:focus {
   outline: none;
   border-bottom: 3px solid #FFDC0B;
 }
@@ -86,10 +96,18 @@ button {
   padding: 0.5em 1em;
   transition: 0.25s background-color;
 }
+button.button-secondary {
+  background-color: transparent;
+  border: 2px solid #FFDC0B;
+  color: #FFDC0B;
+}
 button:hover {
   background-color: #FFDC0B;
   border-radius: 3px;
   cursor: pointer;
+}
+button.button-secondary:hover {
+  color: white;
 }
 button:focus {
   outline: none;

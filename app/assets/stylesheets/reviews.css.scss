@@ -1,3 +1,52 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ADD REVIEW SECTION */
+.bd-reviews__add-review {
+	overflow: auto;
+	.bd__libnotes {
+		float: left;
+	}
+}
+.add-review__toggle {
+	float: right;
+	margin: 0;
+}
+.add-review__form {
+	clear: both;
+	overflow: auto;
+	button {
+		margin: 0;
+		float: right;
+	}
+}
+.add-review__content {
+	width: 100%;
+	margin: 0.5em 0;
+	min-height: 10em;
+	padding: 1em;
+	line-height: 1.5;
+}
+
+/* OUTPUT REVIEW LIST */
+.reviews li {
+	overflow: auto;
+	border-bottom: 1px solid #bbb;
+}
+.review__content {
+	padding: 0.5em 1em;
+	margin: 1em 0 0;
+	line-height: 1.5;
+	border-left: 10px solid #eee;
+	transition: 0.1s border-left;
+}
+.review__content:hover {
+	border-left-color: #FFDC0B;
+}
+.review__attribution {
+	float: right;
+	font-size: 90%;
+	color: #bbb;
+	padding: 0.25em;
+}
