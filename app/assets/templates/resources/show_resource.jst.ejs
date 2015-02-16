@@ -23,10 +23,10 @@
         </dl>
       </div>
       <div class="bd-header__metadata">
-        <%= resource.on_loan %>
-        <%= resource.available %>
-
-        <button>Reserve</button>
+        <% if (onLoan) { %>
+      <em><%= onLoan.due_on %></em>
+        <% } %> 
+        <button class="<%= buttonClass(thisResource, isSignedIn) %>"><%= buttonValue(thisResource) %></button>
       </div>
     </div>
   </header>
@@ -39,11 +39,17 @@
 
     <% if (!readers) { %>
       <blockquote class="bd-interactions__entice">No readers yet! Be the first to check out <em><%= resource.title %></em> from Beehouse Library.</blockquote>
-      <button class="bd-interactions__reserve">Reserve</button>
+      <button class="bd-interactions__reserve <%= buttonClass(thisResource, isSignedIn) %>"><%= buttonValue(thisResource) %></button>
     <% } %>
   </aside>
   <article class="book-details__description">
     <h5 class="bd__libnotes">Librarian Notes</h5>
     <p><%= resource.description %></p>
+  </article>
+  <article class="book-details__reviews">
+    <h5>Reviews By Readers</h5>
+    <ul class="reviews">
+    
+    </ul>
   </article>
 </section>
