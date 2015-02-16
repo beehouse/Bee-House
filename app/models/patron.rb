@@ -1,11 +1,22 @@
 class Patron < ActiveRecord::Base
   devise :database_authenticatable, :token_authenticatable
 
-  has_many :loans 
-  has_many :holds 
+  validates :name, :email, :password, :password_confirmation, presence: true 
+  validates :email, format: { with: /.+@.+\..+/i,
+    message: "must be a valid address" }
+  validates :name, length: { minimum: 2 } 
+  validates :email, uniqueness: { case_sensitive: false, message: "has already registered with us" } 
+
+  validates_confirmation_of :password
+
+  has_many :loans, dependent: :destroy 
+  has_many :holds, dependent: :destroy 
+  has_many :reviews  
   has_many :resources, through: :loans
 
   before_save :ensure_authentication_token
+
+  after_initialize :defaults
 
   def self.admins 
     Patron.where admin: true 
@@ -26,6 +37,12 @@ class Patron < ActiveRecord::Base
       email: self.email 
     }
   end 
+
+    private 
+
+    def defaults 
+      self.admin = false if self.admin.nil? 
+    end 
 end
 
 

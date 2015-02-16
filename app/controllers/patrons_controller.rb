@@ -16,7 +16,7 @@ class PatronsController < ApplicationController
     if @patron.save
       PatronMailer.welcome_patron(@patron.id).deliver_later!(wait: 1.minute) 
     else
-      render :json => {:error => "Problems!"}   
+      render :json => {:errors => @patron.errors}, :status => :unprocessable_entity   
     end 
   end 
 
