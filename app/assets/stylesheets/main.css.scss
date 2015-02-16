@@ -10,7 +10,26 @@
 }
 .patrons__signin, .patrons__signup {
 	padding: 3em 1em;
+	width: 22%;
+	float: left;
+	input {
+		position: relative;
+		width: 100%;
+	}
 }
-.patrons__signin input {
-	position: relative;
+.signup-signin__switcher {
+	padding-top: 1em;
+}
+.signup-signin__switcher p {
+	font-size: 90%;
+	font-style: italic;
+	line-height: 1.25;
+	a {
+		font-style: normal;
+	}
+}
+.signin, .signup {
+	button {
+		float: right;
+	}
 }

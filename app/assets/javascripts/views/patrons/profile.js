@@ -21,7 +21,7 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
       // }; 
       var loanModel = new BHLoan(loanedBook);
  
-      this.$('#paton-loans-list').append(new LoanItemView({model: loanModel}).render().el);
+      this.$('#patron-loans-list').append(new LoanItemView({model: loanModel}).render().el);
     }, this)
 
     return this; 

@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic);
 * {
   margin: 0;
@@ -140,7 +139,7 @@ ul {
   left: 0;
   background-color: rgba(255,255,255,0.95);
   padding: 0.5em;
-  border-top: 1px solid #FFDC0B;
+  border-top: 2px solid #FFDC0B;
   text-align: center;
 }
 .page__navigation ul {
@@ -149,4 +148,7 @@ ul {
 }
 .page__navigation ul li {
   margin: 0 0.5em;
+}
+.beehouse__pg-logo:hover {
+  cursor: pointer;
 }

@@ -1,12 +1,49 @@
 <section class="full__column book-details__main">
   <header class="main__nav">
   </header>
-  <header class="book-details__header">
-    <h1><%= resource.title %> (<%= resource.year %>)</h1>
-    <h2>by <%= resource.creator %></h2>
+  <header class="page__header book-details__header">
+    <div class="bd__header--image">
+      <img src=<%= resource.image || "https://placekitten.com/g/120/120" %> class="book__thumbnail">
+    </div>
+    <div class="bd__header--content">
+      <h1 class="bd-header__title"><%= resource.title %> </h1>
+      <h3 class="bd-header__creator"><%= resource.creator %></h3>
+      
+
+      <div class="bd-header__metadata">
+        <dl>
+          <dt>Year</dt>
+          <dd><%= resource.year %></dd>
+          <dt>Publisher</dt>
+          <dd><%= resource.publisher %></dd>
+          <dt>Format</dt>
+          <dd><%= resource.format %></dd>
+          <dt>Language</dt>
+          <dd><%= resource.language %></dd>
+        </dl>
+      </div>
+      <div class="bd-header__metadata">
+        <%= resource.on_loan %>
+        <%= resource.available %>
+
+        <button>Reserve</button>
+      </div>
+    </div>
   </header>
+  <aside class="book-details__interactions">
+    <h4>Previously Read By</h4>
+
+    <% if (readers) { %>
+      <p><%= showReaders(resource.patrons) %></p>
+    <% } %>
+
+    <% if (!readers) { %>
+      <blockquote class="bd-interactions__entice">No readers yet! Be the first to check out <em><%= resource.title %></em> from Beehouse Library.</blockquote>
+      <button class="bd-interactions__reserve">Reserve</button>
+    <% } %>
+  </aside>
+  <article class="book-details__description">
+    <h5 class="bd__libnotes">Librarian Notes</h5>
     <p><%= resource.description %></p>
-  <% if (readers) { %>
-    <p><strong>Read by:</strong> <%= showReaders(resource.patrons) %></p>
-  <% } %>  
+  </article>
 </section>

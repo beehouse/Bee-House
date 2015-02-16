@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* BOOK INDEX */
+
 .book__pg-title {
   float: left;
 }
@@ -63,4 +65,75 @@
   line-height: 1.5;
   letter-spacing: 0.02em;
   font-style: italic;
+}
+
+/* SHOW BOOK */
+.book-details__interactions, .bd__header--image {
+  width: 25%;
+  float: left;
+}
+.bd__header--content {
+  float: left;
+  padding: 0 2rem;
+  width: 70%;
+}
+.bd__header--image .book__thumbnail {
+  width: 100%;
+  padding: 0 1em 1em 0;
+}
+.bd-header__title {
+  line-height: 1.15;
+  margin-bottom: 0.25em;
+}
+.bd-header__metadata {
+  padding-top: 2em;
+  width: 50%;
+  float: left;
+  color: #bbb;
+  dl {
+    line-height: 2;
+  }
+  dt {
+    font-variant: small-caps;
+    width: 40%;
+    float: left;
+    letter-spacing: 0.15em;
+  }
+  dd {
+    color: #222;
+  }
+}
+.bd-header__metadata + .bd-header__metadata {
+  border-left: 1px solid #bbb;
+  text-align: right;
+  min-height: 10em;
+}
+.bd__libnotes {
+  font-size: 1em;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  padding-bottom: 0.5rem;
+}
+.book-details__description {
+  padding: 2rem;
+  width: 60%;
+  float: left;
+}
+.book-details__interactions {
+  padding: 2rem 1em 0 0;
+}
+.book-details__description p {
+  font-size: 1.5em;
+  line-height: 2;
+}
+.bd-interactions__entice {
+  font-style: italic;
+  margin-top: 1rem;
+  line-height: 1.65;
+  em {
+    border-bottom: 1px solid #bbb;
+  }
+}
+.bd-interactions__reserve {
+  display: block;
 }
