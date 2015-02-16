@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params) 
     unless @review.save
       render :json => {errors: @review.errors}, status: :unprocessable_entity  
-    end 
+    end
   end
 
     private 
