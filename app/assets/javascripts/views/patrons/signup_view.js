@@ -18,7 +18,7 @@ BeeHouse.Views.SignupView = Backbone.View.extend(
       e.preventDefault();
       var that = this,  
         patron = new BHPatron(this.getAttributes());
-        console.log(JSON.stringify(patron.toJSON())); 
+      
 
         patron.save(null, 
           {
@@ -27,6 +27,7 @@ BeeHouse.Views.SignupView = Backbone.View.extend(
               var errors = JSON.parse(resp.responseText).errors;
               _.each(errors, 
                 function(val, key){
+                  console.log(key);
                   that.$el.find('input.'+key).addClass('error');
                 }
               );
@@ -51,13 +52,15 @@ BeeHouse.Views.SignupView = Backbone.View.extend(
       BeeHouse.session.set('authToken', userAuthToken);
       BeeHouse.session.save();
 
-      if (BeeHouse.session.get('redirectedFrom')) {
-        var path = BeeHouse.session.get('redirectedFrom'); 
-        BeeHouse.session.unset('redirectedFrom');
-        Backbone.history.navigate(path, {trigger: true})
-      } else {
-        Backbone.history.navigate('/books', {trigger: true});
-      }
+      BeeHouse.session.getCurrentUser(function(){ 
+        if (BeeHouse.session.get('redirectedFrom')) {
+          var path = BeeHouse.session.get('redirectedFrom'); 
+          BeeHouse.session.unset('redirectedFrom');
+          Backbone.history.navigate(path, {trigger: true})
+        } else {
+          Backbone.history.navigate('/books', {trigger: true});
+        }
+      });
     },
     render: function(){
       $(this.el).html(this.template());
