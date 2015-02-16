@@ -92,6 +92,10 @@ button:hover {
   border-radius: 3px;
   cursor: pointer;
 }
+button:focus {
+  outline: none;
+  border-radius: 3px;
+}
 button.disabled {
   background-color: #bbb; 
 }
