@@ -99,12 +99,25 @@ ul {
   margin: 1em 0;
   list-style: none;
 }
+.pos-fixed {
+  position: fixed;
+}
 .main__column {
   width: 75%;
   float: left;
   margin: 1em;
   padding: 2em;
   border-right: 10px solid #222;
+}
+.half {
+  width: 50%;
+  float: left;
+}
+.half__column {
+  margin: 1em;
+  padding: 2em;
+  width: 47%;
+  float: left;
 }
 .full__column {
   margin: 1em;

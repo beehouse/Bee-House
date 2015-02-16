@@ -5,3 +5,48 @@
 button.create-loan {
    
 }
+.create__loans {
+	border-left: 10px solid #222;
+}
+.create-loans-index li {
+	border-bottom: 1px solid #bbb;
+	min-height: 4em;
+	overflow: auto;
+}
+.book__loan--new {
+	float: left;
+	width: 80%;
+	padding: 0.5em;
+	font-size: 100%;
+}
+.create-loans-index button {
+	float: right;
+	width: 20%;
+}
+.patron-item-loans {
+	font-size: 90%;
+	clear: both;
+}
+.patron-item-loans li {
+	border-top: 1px solid #eee;
+	padding: 0.5rem;
+	list-style-position: inside;
+	overflow: auto;
+	position: relative;
+}
+.return-loan {
+	display: none;
+}
+.patron-item-loans li:hover {
+	background-color: #fffef9;
+}
+.patron-item-loans li:hover .return-loan {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0;
+}
+.new__checkout {
+	text-align: right;
+}

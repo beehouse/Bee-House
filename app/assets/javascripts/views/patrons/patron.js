@@ -1,4 +1,5 @@
 BeeHouse.Views.PatronIndexItem = Backbone.View.extend({
+  tagName: "li",
   template: JST['patrons/patron_item'],
   events: {
     'click .new-loans': 'newLoans',

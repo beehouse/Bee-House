@@ -1,5 +1,6 @@
 BeeHouse.Views.NewLoan = Backbone.View.extend(
   {
+    tagName: "li",
     template: JST['loans/new_loan'],
     events: {
       'click button.create-loan': 'createLoan'

@@ -24,7 +24,6 @@ section.patrons__signup {
 }
 .patron__loan {
 	overflow: auto;
-	padding: 1em;
 	border-bottom: 1px solid black;
 }
 .patron__due {
@@ -32,4 +31,8 @@ section.patrons__signup {
 }
 .book__renew {
 	float: right;
+}
+.patrons__list > li {
+	border-bottom: 1px solid #222;
+	padding: 1em 0;
 }

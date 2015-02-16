@@ -1,12 +1,13 @@
-<li>
-  <section>
+<section>
+  <div class="half">
     <h3><%= patron.name %></h3>
     <p><%= patron.email %></p>
-    <% if (isAdmin) { %>
+  </div>
+  <% if (isAdmin) { %>
+  <div class="half new__checkout">
     <button class="new-loans">Check Out</button>
-    <% } %> 
-    <ol class="patron-item-loans">
-    </ol>
-  </section>
-  <hr> <!-- temp -->
-</li>
+  </div>
+  <% } %> 
+  <ol class="patron-item-loans">
+  </ol>
+</section>
