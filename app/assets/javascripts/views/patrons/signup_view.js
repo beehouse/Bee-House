@@ -31,7 +31,7 @@ BeeHouse.Views.SignupView = Backbone.View.extend(
                 }
               );
 
-              that.submitButton.removeClass('disabled');
+              that.$('button').removeClass('disabled');
             },
             success: function(orig, resp, opts){
               that.$('form.signup').data('user-created', true);

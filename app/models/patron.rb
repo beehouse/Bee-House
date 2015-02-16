@@ -1,6 +1,12 @@
 class Patron < ActiveRecord::Base
   devise :database_authenticatable, :token_authenticatable
 
+  validates :name, :email, :password, :password_confirmation, presence: true 
+  validates :email, format: { with: /.+@.+\..+/i,
+    message: "must be a valid address" }
+  validates :name, length: { minimum: 2 } 
+  validates :email, uniqueness: { case_sensitive: false, message: "has already registered with us" } 
+
   has_many :loans 
   has_many :holds 
   has_many :resources, through: :loans
