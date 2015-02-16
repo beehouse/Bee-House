@@ -90,7 +90,7 @@ Resource.create quantity: 1,
                 available: 1,
                 title: "Surfaces and Essences: Analogy as the Fuel and Fire of Thinking",
                 creator: "Douglas Hofstadter & Emmanuel Sander",
-                description: "Hofstadter pens another hypomanic tome, a meditation on the nature of meditation. The most beautiful cover you've ever seen.",
+                description: "Hofstadter pens a hypomanic tome to house his thought on the nature of thought. It has the most beautiful cover you've ever seen.",
                 publisher: "Basic Books",
                 date: Date.new(2013),
                 format: "hardcover",
@@ -119,3 +119,90 @@ Loan.create patron_id: clay.id,
             renewals: 0,
             began: Date.today,
             ends: Date.today + 3.weeks 
+
+
+Resource.create [
+  {
+    quantity: 1,
+    available: 1, 
+    title: 'The Compleat Purge',
+    creator: 'Trisha Low',
+    description: 'Poet Trisha Low models a scramble suit of suicidal young women for our pleasure & delight.',
+    publisher: 'Kenning Editions',
+    date: Date.parse('October, 2013'), 
+    format: 'paperback',
+    language: 'American English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'A Discipline of Programming',
+    creator: 'Edgar W. Dijkstra',
+    description: 'Dijkstra thinks about programs through a formal mathematical lens.',
+    publisher: 'Prentice-Hall',
+    date: Date.new(1976),
+    format: 'hardcover',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Collected Poems',
+    creator: 'Joseph Ceravolo',
+    description: 'All poems Joseph Ceravolo wrote, organized by book.',
+    publisher: 'Wesleyan University Press',
+    date: Date.new(2013),
+    format: 'hardcover',
+    language: 'American English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'The Poets of the New York School',
+    creator: 'John Bernard Myers',
+    description: 'John Bernard Myers, co-founder of the Tibor de Nagy gallery, collects together representative works by the New York School of Poets. Including poems by Ashbery, Ceravolo, Kenward Elmslie, Barbara Guest, Kenneth Koch, Frank Lima, O\'Hara, Schuyler & Tony Towle, the volume interleaves these w/ some paintings.',
+    date: Date.new(1969),
+    publisher: 'The Falcon Press',
+    format: 'hardcover',
+    language: 'American English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'The Mythical Man-Month',
+    creator: 'Frederick P. Brooks, Jr.',
+    description: 'Several essays on making software. The title alludes to the thought, "The more developers working on it, the faster it\'ll get done." This is the greenish blue, 20th Anniversary Edition, paperback.',
+    date: Date.new(2007),
+    publisher: 'Addison-Wesley',
+    format: 'paperback',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Francesca Woodman\'s Notebook',
+    creator: 'Francesca Woodman',
+    description: 'This is a reproduction of Woodman\'s previously unpublished artist book Quaderno.',
+    date: Date.new(2011),
+    publisher: 'SilvanaEditoriale',
+    format: 'booklet',
+    language: 'Italian, English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Algebra Made Easy',
+    creator: 'Edwin J. Houston',
+    description: 'Being a Clear Explanation of the Mathematical Formulae Found in Prof. Thompson\'s Dynamo-Electric Machinery and Polyphase Electric Currents. Or, in other words, a voice from the 1900s elucidates the meaning of elementary mathematical symbols to one interested in learning themselves some-a \'em dynamo-electric machines.',
+    date: Date.new(2012),
+    publisher: 'Forgotten Books',
+    format: 'paperback',
+    language: 'American English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'No.014: Alejandro Jodorowsky',
+    description: 'This is a pink booklet reproducing pages from Jodorowsky\'s DUNE notebook, where he writes about tarot cards & art\'s power to heal.'
+  }
+]
