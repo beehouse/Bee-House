@@ -1,1 +1,5 @@
-<li><%= loan.title %></li>
+<li><%= loan.title %>
+<% if (admin) { %>
+  <button class="return-loan">Return</button>
+<% } %> 
+</li>
