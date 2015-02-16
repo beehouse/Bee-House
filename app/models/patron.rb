@@ -7,8 +7,8 @@ class Patron < ActiveRecord::Base
   validates :name, length: { minimum: 2 } 
   validates :email, uniqueness: { case_sensitive: false, message: "has already registered with us" } 
 
-  has_many :loans 
-  has_many :holds 
+  has_many :loans, dependent: :destroy 
+  has_many :holds, dependent: :destroy 
   has_many :resources, through: :loans
 
   before_save :ensure_authentication_token
