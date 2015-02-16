@@ -1,5 +1,6 @@
 BeeHouse.Views.PatronItemLoan = Backbone.View.extend(
   {
+    tagName: "li",
     template: JST['loans/patron_loan'],
     events: {
       'click .return-loan': 'returnLoan'

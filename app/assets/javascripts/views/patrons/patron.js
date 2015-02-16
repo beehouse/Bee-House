@@ -1,4 +1,5 @@
 BeeHouse.Views.PatronIndexItem = Backbone.View.extend({
+  tagName: "li",
   template: JST['patrons/patron_item'],
   events: {
     'click .new-loans': 'newLoans',
@@ -11,7 +12,7 @@ BeeHouse.Views.PatronIndexItem = Backbone.View.extend({
     var doneButton = this.$('.finish-check-out'); 
     this.checkOutView.close();
     this.checkOutView = null; 
-    $('.new-loans').removeClass('disabled');
+    $('.disabled').removeClass('disabled').addClass('new-loans');
     doneButton.text('Check Out')
     .removeClass('finish-check-out') 
     .addClass('new-loans');
@@ -32,7 +33,7 @@ BeeHouse.Views.PatronIndexItem = Backbone.View.extend({
     resources.fetch()
       .done(function(){
         that.$('.new-loans').text('Done').removeClass('new-loans').addClass('finish-check-out');
-        $('.new-loans').addClass('disabled');
+        $('.new-loans').addClass('disabled').removeClass('new-loans');
         var newLoans = new NewLoans({collection: resources, patronId: userId});
         $('.patrons-index-container').append(newLoans.render().el); 
         that.checkOutView = newLoans;

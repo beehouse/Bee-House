@@ -9,12 +9,6 @@ form label input {
   display: block; 
 }
 
-// Sign in Form 
-
-section.patrons__signup {
-  padding: 1em;
-}
-
 // book aside column
 .book__checkout {
 	padding: 2em;
@@ -24,7 +18,6 @@ section.patrons__signup {
 }
 .patron__loan {
 	overflow: auto;
-	padding: 1em;
 	border-bottom: 1px solid black;
 }
 .patron__due {
@@ -32,4 +25,8 @@ section.patrons__signup {
 }
 .book__renew {
 	float: right;
+}
+.patrons__list > li {
+	border-bottom: 1px solid #222;
+	padding: 1em 0;
 }
