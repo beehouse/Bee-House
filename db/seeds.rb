@@ -204,5 +204,115 @@ Resource.create [
     available: 1,
     title: 'No.014: Alejandro Jodorowsky',
     description: 'This is a pink booklet reproducing pages from Jodorowsky\'s DUNE notebook, where he writes about tarot cards & art\'s power to heal.'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Poem From Jail',
+    creator: 'Ed Sanders',
+    description: 'Very fragile, almost to the point where the cover is falling off.',
+    date: Date.new(1963),
+    publisher: 'City Lights Books',
+    format: 'paperback',
+    language: 'American English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Catching Fire',
+    creator: 'Suzanne Collins',
+    description: 'The second book of the Hunger Games trilogy.',
+    date: Date.new(2009),
+    publisher: 'Scholastic Press',
+    format: 'hardcover',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Schaums\'s Outline Series: Theory and Problems of Essential Computer Mathematics',
+    creator: 'Seymour Lipschutz',
+    description: 'An introduction to computer mathematics from the 1980s. Beautifully typeset with a lurid pink cover, perfect for maths.',
+    date: Date.new(1982),
+    publisher: 'McGraw-Hill Book Company',
+    format: 'paperback',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Beautiful Geometry',
+    creator: 'Eli Maor and Eugen Jost',
+    description: 'An art book, the union of a mathematical historian and an artist to explain the elegance of geometric principles. Gorgeous illustrations, diagrams, and proofs. Cogent, easy introduction to geometry.',
+    date: Date.new(2014),
+    publisher: 'Princeton University Press',
+    format: 'hardcover',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'AngularJS Novice to Ninja',
+    creator: 'Sandeep Panda',
+    description: 'A fun guidebook to AngularJS.',
+    date: Date.new(2014),
+    publisher: 'Sitepoint',
+    format: 'paperback',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Becoming Functional',
+    creator: 'Joshua Backfield',
+    description: '',
+    date: Date.new(2014),
+    publisher: 'O\'Reilly Media',
+    format: 'paperback',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'The Fractal Geometry of Nature',
+    creator: 'Benoit B. Mandlebrot',
+    description: 'Third edition. Beautiful math and beautiful prints, the seminal book on fractals from Mandlebrot himself. Requires knowledge of advanced mathematics to fully understand the paper, although Mandlebrot\'s prose is glorious.',
+    date: Date.new(1983),
+    publisher: 'W. H. Freeman and Company',
+    format: 'hardcover',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'SVG Essentials',
+    creator: 'J. David Eisenberg and Amelia Bellamy-Royds',
+    description: 'Second edition. A beginner\'s guide to Scalable Vector Graphics. Does not require prior experience with web development or design to get started.',
+    date: Date.new(2014),
+    publisher: 'O\'Reilly Media',
+    format: 'paperback',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'The Little Prince',
+    creator: 'Antoine de Saint-Exupéry',
+    description: 'English translation. The beloved short story from Saint-Exupéry, alongside his original pen and watercolor illustrations. Charming modern edition.',
+    date: Date.new(2000),
+    publisher: 'Harcourt',
+    format: 'paperback',
+    language: 'English'
+  },
+  {
+    quantity: 1,
+    available: 1,
+    title: 'Le Petit Prince',
+    creator: 'Antoine de Saint-Exupéry',
+    description: 'Original French version. The beloved short story from Saint-Exupéry, alongside his original pen and watercolor illustrations. Charming modern edition.',
+    date: Date.new(2001),
+    publisher: 'Harcourt',
+    format: 'paperback',
+    language: 'French'
   }
 ]
