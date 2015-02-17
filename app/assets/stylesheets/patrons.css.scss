@@ -9,12 +9,14 @@ form label input {
   display: block; 
 }
 
-// book aside column
+// book aside profile column
 .book__checkout {
-	padding: 2em;
+	padding: 2em 1em;
+ 	width: 22%;
+	float: left;
 }
 .checkout__list {
-	padding: 1em;
+	//padding: 1em;
 }
 .patron__loan {
 	overflow: auto;
@@ -22,11 +24,35 @@ form label input {
 }
 .patron__due {
 	text-align: right;
+	font-size: 90%;
 }
 .book__renew {
 	float: right;
+	width: 35%;
+	margin: 0;
+	font-size: 90%;
 }
 .patrons__list > li {
 	border-bottom: 1px solid #222;
 	padding: 1em 0;
+}
+.patron__due {
+  font-style: italic;
+  float: left;
+  text-align: right;
+  width: 65%;
+  padding: 0.5em;
+}
+.checkout__welcome {
+	border-bottom: 1px solid #bbb;
+	padding: 1em 0;
+	margin-bottom: 1em;
+}
+.checkout__count {
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+}
+.patron__book {
+	padding: 0.5em 0;
+	line-height: 1.25;
 }

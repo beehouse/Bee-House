@@ -43,6 +43,9 @@ h3 {
 h4 {
   font-size: 125%;
 }
+h5 {
+  font-size: 110%;
+}
 hr {
   height: 1px;
   background-color: #222;

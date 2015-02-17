@@ -1,5 +1,5 @@
 <li class="patron__loan">
-  <p class="patron__book"><%= resource.title %></p>
+  <h5 class="patron__book"><%= resource.title %></h5>
   <p class="patron__due">due <%= resource.ends_formatted %> </p>
   <button class="book__renew <%= (resource.renewals > 2) ? 'disabled' : '' %>">Renew</button>
 </li>
