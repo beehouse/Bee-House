@@ -30,6 +30,7 @@ BeeHouse.Views.NewReview = Backbone.View.extend(
         review.save()
           .done(function(){
             BHEvents.trigger('newReviewEvent', review);
+            $('button.add-review__toggle').text('Add Your Review');
             that.close();
           });
 

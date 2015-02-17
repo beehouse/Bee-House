@@ -10,7 +10,7 @@ BeeHouse.Views.ResourcePage = Backbone.View.extend(
       var reviewOpen = this.reviewView;
       if (!BeeHouse.session.isAuthenticated()) {
         // this feels a little rude but... 
-        Backbone.history.navigate('signin', {path: '/'});
+        Backbone.history.navigate('signin', {trigger: true});
       }
 
       if (!reviewOpen) {
@@ -86,7 +86,7 @@ BeeHouse.Views.ResourcePage = Backbone.View.extend(
       var reviewsUl = this.$('.reviews');
       var reviewItem = new BHReviewItem(
         {model: reviewModel});
-      reviewsUl.append(reviewItem.render().el);
+      reviewsUl.prepend(reviewItem.render().el);
     },
     render: function(){
       var resource = this.model.toJSON(),
