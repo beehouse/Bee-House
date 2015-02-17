@@ -3,7 +3,25 @@ BeeHouse.Views.ResourcePage = Backbone.View.extend(
     template: JST['resources/show_resource'],
     events: {
       'click .request-resource': 'requestResource',
-      'click .signin': 'signinRedirect'
+      'click .signin': 'signinRedirect',
+      'click .add-review__toggle': 'toggleNewReview'
+    },
+    toggleNewReview: function(e){
+      var reviewOpen = this.reviewView;
+      if (!BeeHouse.session.isAuthenticated()) {
+        // this feels a little rude but... 
+        Backbone.history.navigate('signin', {path: '/'});
+      }
+
+      if (!reviewOpen) {
+        this.reviewView = new BHNewReview({model: this.model}); 
+        this.reviewView.render().$el.insertBefore('ul.reviews');
+        e.currentTarget.innerText = 'Actually, Forget This Review';
+      } else {
+        this.reviewView.close(); 
+        this.reviewView = false; 
+        e.currentTarget.innerText = 'Add Your Review';
+      }
     },
     requestResource: function(){
       var hold = new BHHold(),
@@ -23,6 +41,7 @@ BeeHouse.Views.ResourcePage = Backbone.View.extend(
       Backbone.history.navigate('signin', {trigger: true});
     },
     initialize: function(){
+      this.listenTo(BHEvents, 'newReviewEvent', this.addReview);
       this.model.on('change', this.render, this);
     },
     showReaders: function(readers){

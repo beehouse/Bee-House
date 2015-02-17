@@ -46,7 +46,7 @@ BeeHouse.Models.Session = Backbone.Model.extend(
       var that = this; 
       this.set(
         {
-          userId: $.cookie('user_id'),
+          userId: parseInt($.cookie('user_id')),
           authToken: $.cookie('authentication_token')
         }
       );
