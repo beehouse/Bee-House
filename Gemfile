@@ -32,6 +32,8 @@ gem 'oj'
 
 gem 'redis'
 
+gem 'roadie-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-cookie-rails' 

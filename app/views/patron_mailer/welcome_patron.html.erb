@@ -1,13 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <style>
+
+    .para,
+    .greeting,
+    .signature,
+    #bh_logo_img,   
+    td.info,
+    p {
+      font-family: Geneva, 'Trebuchet MS', Arial !important;
+      color: #222 !important;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom:10px;
+    }
+    .greeting {
+      font-size: 125%;
+      margin-bottom: 7.5px;
+    }
+    .signature {
+      font-size: 110%; 
+    }
+    table.wrapper {
+      width: 100%;
+    }
+    table.header,
+    table.footer {
+      width: 600px; 
+    }
+    table.content {
+      width: 575px;
+    }
+    a {
+      color: #222; 
+    }
+    a#bh_logo_link {
+      text-decoration: none; 
+    }
+    #bh_logo_img {
+      font-size: 275%;
+    }
+    #bh_logo {
+      height: 70px;
+    }
+    #bh_logo, 
+    .info {
+      border-left: 10px solid white;
+    }
+
+    .divider-normal {
+      border-bottom: 3px solid #222;
+    }
+    .divider-small {
+      border-top: 1.25px solid #444; 
+      margin-bottom: 7.5px; 
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, <%= @patron.name %></h1>
-  <p>Thanks for signing up for Beehouse. If there's anything I can help you with, let me know.</p>
-  <p>You can reserve books thru the site, and pick them up from Cheryl and me at our house.</p>
-  <p>cheers,<br>Clayton Albachten</p>
+  <table class="wrapper">
+    <table class="header" align="center">
+      <tr>
+        <td id="bh_logo"><a id="bh_logo_link" href="https://beehouse-library.herokuapp.com"><img id="bh_logo_img" src="http://s13.postimg.org/cef4nkub7/beehouse_pg_logo.png" alt="Beehouse Library"/></a></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="divider-normal" colspan="3"></td>
+      </tr>
+    </table>
+    <table class="content" align="center">
+      <tr class="greeting"><td>Hey <%= @patron.name.split(' ')[0] %>,</td></tr>
+
+      <tr class="para"><td><p>Thank you for joining the Beehouse community. We currently have <%= @collection_count %> books in the system, and, if we can count on anything, we'll have more books in the future. Take some time to <a href="https://beehouse-library.herokuapp.com/books">look through what's there</a>. See if what you're looking for's there, or if anything unexpected catches your eye.</p></td></tr> 
+
+      <tr class="para"><td><p>Feel free to let me know if there's anything I can help you with. This welcome is sent out from my personal email so you can reply directly, no problem.</p></td></tr>
+
+      <tr class="signature"><td>Cheers,<br>
+      Clay a</td></tr>
+    </table>
+    <table class="footer" align="center"> 
+      <tr>
+        <td class="divider-small"></td>
+      </tr>   
+      <tr>
+        <td class="info">
+          Clayton Albachten<br>
+          Beehouse Librarian<br> 
+          T: <a href="tel:%28646%29%20787-5852" value="+16467875852" target="_blank">(646) 787-5852</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="info">
+          5 E67th Street, Apt. 1B<br>
+          New York, NY 10065
+        </td>
+      </tr>
+    </table>    
+  </table>
 </body>
 </html>
