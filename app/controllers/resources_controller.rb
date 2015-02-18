@@ -4,7 +4,8 @@ class ResourcesController < ApplicationController
    
   
   def index
-    @resources = Resource.all 
+    page = params[:page] || 1 
+    @resources = Resource.page(page).per(10)
   end
 
   def show

@@ -10,7 +10,7 @@ group :development, :test do
   gem 'sqlite3' 
 end 
 
-
+gem 'kaminari'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

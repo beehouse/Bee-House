@@ -39,6 +39,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
   {
     routes: { 
       'books': 'indexResources',
+      'books/page-:num': 'indexResources',
       'books/:id': 'showResource',
       'admin': 'showAdminPanel',
       'patrons': 'indexPatrons',
@@ -121,13 +122,19 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       var landingPageView = new BeeHouseLanding();
       this.changeView(landingPageView);   
     },
-    indexResources: function(){
+    indexResources: function(page){
+      page = page || 1; 
       var that = this; 
       var resources = new BeeHouse.Collections.Resources();
 
-      resources.fetch()
+      resources.fetch({data: {page: page}})
         .done(function(){
-          var resourcesView = new BeeHouse.Views.ResourcesIndex({collection: resources});
+          var resourcesView = new BeeHouse.Views.ResourcesIndex(
+            {
+              collection: resources,
+              currentPage: page 
+            }
+          );
           that.changeView(resourcesView); 
         }).fail(function(error){
           console.log("There was an error!:"); 
