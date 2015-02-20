@@ -8,18 +8,18 @@
     .greeting,
     .signature,
     #bh_logo_img,   
-    td.info,
+    .info,
     p {
-      font-family: Geneva, 'Trebuchet MS', Arial !important;
-      color: #222 !important;
+      font-family: Geneva, 'Trebuchet MS', Arial;
+      color: #222222;
     }
+
     p {
       margin-top: 0;
       margin-bottom:10px;
     }
     .greeting {
       font-size: 125%;
-      margin-bottom: 7.5px;
     }
     .signature {
       font-size: 110%; 
@@ -35,7 +35,7 @@
       width: 575px;
     }
     a {
-      color: #222; 
+      color: #222222; 
     }
     a#bh_logo_link {
       text-decoration: none; 
@@ -51,12 +51,25 @@
       border-left: 10px solid white;
     }
 
+    .space,
     .divider-normal {
-      border-bottom: 3px solid #222;
+      height: 7px;
+    }
+
+    .contact {
+      width: 140px;
+    }
+
+    .address {
+      color: #bbbbbb;
+    }
+
+    .divider-normal {
+      border-top: 3px solid #222222;
     }
     .divider-small {
-      border-top: 1.25px solid #444; 
-      margin-bottom: 7.5px; 
+      border-top: 1.25px solid #444444;  
+      height: 13px;
     }
   </style>
 </head>
@@ -73,29 +86,29 @@
       </tr>
     </table>
     <table class="content" align="center">
-      <tr class="greeting"><td>Hey <%= @patron.name.split(' ')[0] %>,</td></tr>
+      <tr><td class="greeting">Hey <%= @patron.name.split(' ')[0] %>,</td></tr>
+      <tr><td class="space"></td></tr>
 
       <tr class="para"><td><p>Thank you for joining the Beehouse community. We currently have <%= @collection_count %> books in the system, and, if we can count on anything, we'll have more books in the future. Take some time to <a href="https://beehouse-library.herokuapp.com/books">look through what's there</a>. See if what you're looking for's there, or if anything unexpected catches your eye.</p></td></tr> 
 
       <tr class="para"><td><p>Feel free to let me know if there's anything I can help you with. This welcome is sent out from my personal email so you can reply directly, no problem.</p></td></tr>
 
-      <tr class="signature"><td>Cheers,<br>
+      <tr><td class="signature">Cheers,<br>
       Clay a</td></tr>
+      <tr><td class="space"></td></tr>
     </table>
     <table class="footer" align="center"> 
       <tr>
-        <td class="divider-small"></td>
+        <td class="divider-small" colspan="2"></td>
       </tr>   
       <tr>
-        <td class="info">
+        <td class="info contact" valign="top">
           Clayton Albachten<br>
           Beehouse Librarian<br> 
           T: <a href="tel:%28646%29%20787-5852" value="+16467875852" target="_blank">(646) 787-5852</a>
         </td>
-      </tr>
-
-      <tr>
-        <td class="info">
+        <td class="info address" valign="top">
+          <br>
           5 E67th Street, Apt. 1B<br>
           New York, NY 10065
         </td>
