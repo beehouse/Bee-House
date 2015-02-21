@@ -4,8 +4,22 @@ class ResourcesController < ApplicationController
    
   
   def index
-    page = params[:page] || 1 
-    @resources = Resource.page(page).per(10)
+    # if page is unset set it to 1 
+    if params[:page].nil? 
+      page = 1 
+    elsif params[:page] == 'false'
+      # but if false... 
+      page = false 
+    else 
+      page = params[:page]
+    end 
+
+    if page 
+      @resources = Resource.page(page).per(10) 
+    else 
+      # ...return all resources 
+      @resources = Resource.all 
+    end 
   end
 
   def show

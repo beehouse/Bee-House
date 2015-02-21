@@ -24,6 +24,8 @@ gem 'devise-token_authenticatable'
 # gem 'therubyracer',  platforms: :ruby
 gem 'colorize'
 
+gem 'jquery-ui-rails' 
+
 gem 'sidekiq'
 
 gem 'bcrypt'

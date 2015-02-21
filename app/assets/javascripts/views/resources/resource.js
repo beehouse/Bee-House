@@ -17,8 +17,9 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
       var that = this; 
 
       // create a hold 
-      var resourceId = this.model.get('id');
-      var patronId = BeeHouse.session.get('userId'); 
+      var resourceId = this.model.get('id'),
+              patron = BeeHouse.session.get('currentUser'),
+            patronId = patron.get('id'); 
 
       var initData = {
         resource_id: resourceId, 
@@ -30,6 +31,15 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
       hold.save(null, {
         success: function(model, resp, opts){
           that.model.fetch(); 
+
+          console.log(patron);
+          console.log(patron.get('holds'));
+
+          // update the currentUser's holds 
+          patron.get('holds')
+            .push(hold.toJSON());
+
+          patron.trigger('change');
         }
       });
     },

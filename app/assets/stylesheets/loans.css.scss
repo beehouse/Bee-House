@@ -34,9 +34,11 @@ button.create-loan {
 	overflow: auto;
 	position: relative;
 }
+
 .return-loan {
-	display: none;
-}
+ 	display: none; 
+} 
+
 .patron-item-loans li:hover {
 	background-color: #fffef9;
 }

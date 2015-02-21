@@ -2,7 +2,7 @@ BeeHouse.Views.AdminItem = Backbone.View.extend(
   {
     template: JST['resources/admin_item'],
     events: {
-      'click button.return-loan': 'returnLoan',
+      'click button.return-loan-notify': 'returnLoan',
       'click button.new-loan': 'newLoan'
     },
     initialize: function(){
@@ -42,7 +42,7 @@ BeeHouse.Views.AdminItem = Backbone.View.extend(
       if (isNotified) {
         return 'disabled';
       } else {
-        return isOnLoan ? 'return-loan' : 'new-loan';
+        return isOnLoan ? 'return-loan-notify' : 'new-loan';
       }
     },
     buttonValue: function(thisCollection){

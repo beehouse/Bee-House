@@ -30,8 +30,10 @@ BeeHouse.Views.PatronIndexItem = Backbone.View.extend({
     var userId = this.model.attributes.id; 
   
     var resources = new BHResources();
-    resources.fetch()
-      .done(function(){
+    resources.fetch({data: 
+      // set page to false to get all pages
+      {page: false}  
+    }).done(function(){
         that.$('.new-loans').text('Done').removeClass('new-loans').addClass('finish-check-out');
         $('.new-loans').addClass('disabled').removeClass('new-loans');
         var newLoans = new NewLoans({collection: resources, patronId: userId});

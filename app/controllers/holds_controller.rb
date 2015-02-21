@@ -2,7 +2,7 @@ class HoldsController < ApplicationController
   respond_to :json 
 
   before_action :check_admin, only: [:index, :show] # destroy when loaned 
-                                                    # or have user cancel hold  
+                                                    # or have patron cancel hold  
   def index
     @holds = Hold.all 
   end
@@ -10,6 +10,11 @@ class HoldsController < ApplicationController
   def show
     @hold = Hold.find(params[:id]) 
   end
+
+  def destroy 
+    @hold = Hold.find(params[:id])
+    @hold.destroy  
+  end 
 
   def create
     @hold = Hold.new(create_holds_params)

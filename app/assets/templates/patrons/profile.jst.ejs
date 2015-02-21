@@ -1,13 +1,23 @@
 <aside class="book__checkout">
 	<header class="checkout__welcome">
   		<h2>Hello, <%= user.name %>!</h2>
-  		<h4>Currently checked out:</h4>
-	  
-	  	<p class="checkout__count"><%= user.current_loans.length %> out of 10</em>
-  	</header>
-
-  <section class="checkout__list">
-	  <ol id="patron-loans-list">
-	  </ol>
-	</section>
+  </header>
+  <section id="tabs">
+    <ul>
+      <li><a href="#checkout__list">Your Books</a></li>
+      <li><a href="#holds__list">Your Requests</a></li>
+    </ul>
+    <section id="checkout__list">
+      <h4>Currently checked out:</h4>  
+      <p class="checkout__count"><em><%= user.current_loans.length %> out of 10</em></p>
+      <ol id="patron-loans-list">
+        
+      </ol>
+  	</section>
+    <section id="holds__list">
+      <h4>Current requests:</h4> 
+      <ol id="patron-holds-list">
+      </ol>
+    </section>
+  </section>
 </aside>
