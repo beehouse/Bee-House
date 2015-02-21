@@ -1,0 +1,15 @@
+Beehouse Library 
+================
+
+Hey <%= @patron.name.split(' ')[0] %>,
+
+I know you probably just can't stop reading <%= @resource.title %>, on the bus, on the train, in bed, at the dinner table, in the shower with a little ziplock bag around it, but... It's nearing its due date. <% if @loan.renewable? %> You can renew it through the site or get it back to us at Beehouse. Either way, be <% else %> And, unfortunately, you've reached the max number of renewals we allow. Be <% end %> sure to get it returned in time or  we'll have to charge you late fees, which would kinda suck.
+
+Sincerely,
+Clay a 
+
+-----------------
+ 
+Beehouse Librarian 
+5 E67th Street, Apt. 1B
+New York, NY 10065 

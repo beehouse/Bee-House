@@ -23,6 +23,7 @@ class LoansController < ApplicationController
     @loan.ends = Date.today + 3.weeks
     @loan.renewals = 0
     @loan.returned = false  
+    @loan.reminded = false 
     @loan.save
     ap @loan 
   end 
@@ -35,7 +36,8 @@ class LoansController < ApplicationController
     @loan = Loan.find params[:id]
     update_params = loan_params 
     if update_params.include? "ends"
-      update_params["renewals"] = @loan.renewals + 1 
+      update_params["renewals"] = @loan.renewals + 1
+      update_params["reminded"] = false  
       @loan.update update_params
     else
        @loan.update update_params
@@ -54,7 +56,7 @@ class LoansController < ApplicationController
     private 
 
     def loan_params
-      params.require(:loan).permit(:ends, :patron_id, :resource_id, :began)
+      params.require(:loan).permit(:ends, :patron_id, :resource_id, :began, :reminded)
     end 
 
     def check_admin

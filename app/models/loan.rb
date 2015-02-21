@@ -12,8 +12,26 @@ class Loan < ActiveRecord::Base
     !self.returned 
   end 
 
+  def reminded?
+    self.reminded 
+  end 
+
+  def unreminded?
+    !self.reminded
+  end 
+
+  def renewable?
+    self.renewals < 3 
+  end 
+
   def return 
     self.update returned: true 
+  end 
+
+  def due_in? time 
+    due_date = self.ends 
+    test_date = due_date - time 
+    Date.today > test_date
   end 
 
   def to_h 

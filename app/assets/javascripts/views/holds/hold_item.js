@@ -24,7 +24,6 @@ BeeHouse.Views.PatronProfileHoldItem = Backbone.View.extend(
         });
 
         patronHolds.splice(idx, 1);
-        console.log(resourceId);
 
         BHEvents.trigger('destroyHoldEvent', resourceId);
 

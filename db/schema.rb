@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213234235) do
+ActiveRecord::Schema.define(version: 20150221221436) do
 
   create_table "holds", force: :cascade do |t|
     t.integer  "patron_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150213234235) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "returned",    default: false
+    t.boolean  "reminded",    default: false
   end
 
   create_table "patrons", force: :cascade do |t|
