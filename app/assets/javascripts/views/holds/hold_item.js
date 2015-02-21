@@ -5,7 +5,9 @@ BeeHouse.Views.PatronProfileHoldItem = Backbone.View.extend(
       'click .cancel_request': 'destroyHold'
     },
     destroyHold: function(){
-      var holdId = this.model.id; 
+      var holdId = this.model.id,
+      resourceId = this.model.resource_id; 
+
       var patron = BeeHouse.session.get('currentUser'),
             that = this, 
             hold = new BHHold(
@@ -22,6 +24,9 @@ BeeHouse.Views.PatronProfileHoldItem = Backbone.View.extend(
         });
 
         patronHolds.splice(idx, 1);
+        console.log(resourceId);
+
+        BHEvents.trigger('destroyHoldEvent', resourceId);
 
         that.close(); 
       });  

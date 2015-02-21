@@ -7,6 +7,22 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
     }, 
     initialize: function() {
       this.model.on('change', this.render, this);
+      this.listenTo(BHEvents, 'destroyHoldEvent', this.reloadIfMe);
+    },
+    reloadIfMe: function(resourceId){
+      var modelId = this.model.get('id')
+             that = this;
+      console.log(modelId);
+      console.log(resourceId); 
+      var isMe = parseInt(modelId) === parseInt(resourceId); 
+
+      if (isMe) {
+        this.model
+        .fetch()
+        .done(function(){
+          that.render();
+        });
+      }
     },
     showBook: function(){
       var resourceId = this.model.get('id');
@@ -30,16 +46,14 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
 
       hold.save(null, {
         success: function(model, resp, opts){
+          // reload the resource 
           that.model.fetch(); 
-
-          console.log(patron);
-          console.log(patron.get('holds'));
 
           // update the currentUser's holds 
           patron.get('holds')
             .push(hold.toJSON());
 
-          patron.trigger('change');
+          BHEvents.trigger('newHoldEvent', hold.toJSON());
         }
       });
     },

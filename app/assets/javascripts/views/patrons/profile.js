@@ -2,8 +2,14 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
 
   template: JST['patrons/profile'],
   initialize: function(){
-    _.bindAll(this,"render"); // keep this.model available 
+    _.bindAll(this,'render'); // keep this.model available 
     this.model.on('change', this.render);
+    this.listenTo(BHEvents, 'newHoldEvent', this.addHoldItem);
+  },
+  addHoldItem: function(hold){
+    this.$('#patron-holds-list').append(
+      new HoldItemView({model: hold})
+    .render().el);
   },
   render: function(){
     // Add their info
@@ -27,9 +33,7 @@ BeeHouse.Views.PatronProfile = Backbone.View.extend({
 
     // & their holds 
     _.each(this.model.get('holds'), function(hold) {
-      this.$('#patron-holds-list').append(
-        new HoldItemView({model: hold})
-        .render().el);
+      this.addHoldItem(hold);
     }, this);
 
     return this; 
