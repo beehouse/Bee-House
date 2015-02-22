@@ -3,12 +3,18 @@ BeeHouse.Views.MainNav = Backbone.View.extend(
   {
     template: JST['partials/main_nav'],
     events: {
+      'click .fines': 'fines',
       'click .signout': 'signout',
       'click .signin': 'signin',
       'click .admin': 'adminPanel',
       'click .books': 'booksIndex',
       'click .beehouse__pg-logo': 'booksIndex',
       'click .patrons': 'patronsIndex'
+    },
+    fines: function(e){
+      e.preventDefault();
+      Backbone.history.navigate('fines', {trigger: true});
+
     },
     booksIndex: function(e){
       e.preventDefault();

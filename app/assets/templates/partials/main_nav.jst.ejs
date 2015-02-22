@@ -1,5 +1,10 @@
 <img src="<%= BeeHouseImages.pgLogo %>" class="beehouse__pg-logo">
 <nav class="page__navigation">
+<% if (currentUser.get('late_fees') > 0) { %>
+  <div class="notifications late_fees">
+    <h4>You have late fees of $<%= (currentUser.get('late_fees')/100).toFixed(2) %>. Please <a class="fines" href="/fines">pay them</a>.</h4>
+    </div>
+<% } %>
 <ul>
   <li> 
     <a class="books" href="/books">Books</a>

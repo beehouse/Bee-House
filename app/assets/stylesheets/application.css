@@ -159,12 +159,27 @@ ul {
   height: 28px;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.95);
   padding: 0.5em;
   border-top: 2px solid #FFDC0B;
   text-align: center;
 }
+.page__navigation .notifications {
+  background-color: #FFDC0B;
+}
+
+.page__navigation .notifications a:hover,
+.page__navigation .notifications a:active,
+.page__navigation .notifications a.active {
+  border-bottom: 3px solid #222;
+}
+
+.page__navigation, 
 .page__navigation ul {
+  background-color: rgba(255,255,255,0.95);
+}
+
+.page__navigation ul {
+
   margin: 0;
   list-style: none;
 }

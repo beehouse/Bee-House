@@ -41,6 +41,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       'books': 'indexResources',
       'books/page-:num': 'indexResources',
       'books/:id': 'showResource',
+      'fines': 'newPayment',
       'admin': 'showAdminPanel',
       'patrons': 'indexPatrons',
       '': 'landingPage',
@@ -51,7 +52,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     }, 
     // Use regex in requiresAuth for dynamic paths 
     // e.g. if books/:id, /^books\/[1-9][0-9]*$/ 
-    requiresAuth: ['books', 'patrons', 'admin', 'signout'],
+    requiresAuth: ['books', 'patrons', 'admin', 'signout', 'fines'],
     redirectToAfter: [/^books\/[1-9][0-9]*$/],
     preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
@@ -121,6 +122,10 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     landingPage: function(){
       var landingPageView = new BeeHouseLanding();
       this.changeView(landingPageView);   
+    },
+    newPayment: function(){
+      var paymentsView = new BHPayments();
+      this.changeView(paymentsView);
     },
     indexResources: function(page){
       page = page || 1; 

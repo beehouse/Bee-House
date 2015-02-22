@@ -12,9 +12,8 @@ BeeHouse.Views.ResourcesItem = Backbone.View.extend(
     reloadIfMe: function(resourceId){
       var modelId = this.model.get('id')
              that = this;
-      console.log(modelId);
-      console.log(resourceId); 
-      var isMe = parseInt(modelId) === parseInt(resourceId); 
+             
+      var isMe = modelId === resourceId; 
 
       if (isMe) {
         this.model
