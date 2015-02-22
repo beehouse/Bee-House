@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221221436) do
+ActiveRecord::Schema.define(version: 20150222203146) do
 
   create_table "holds", force: :cascade do |t|
     t.integer  "patron_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150221221436) do
     t.datetime "updated_at"
     t.boolean  "returned",    default: false
     t.boolean  "reminded",    default: false
+    t.boolean  "warned",      default: false
   end
 
   create_table "patrons", force: :cascade do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150221221436) do
     t.boolean  "admin"
     t.string   "encrypted_password",   limit: 255
     t.string   "authentication_token", limit: 255
+    t.integer  "late_fees",                        default: 0
   end
 
   create_table "resources", force: :cascade do |t|

@@ -1,0 +1,15 @@
+Beehouse Library 
+================
+
+<%= @patron.name.split(' ')[0] %>,
+
+I'm writing to inform you <%= @resource.title %> is overdue. Please return it <% if @loan.renewable? %> (or renew it through the site) <% end %> as soon as possible. For every day the resource is overdue you will be incur an additional 50¢ in late fees. Nobody wants that.
+
+Sincerely,
+Clayton Albachten 
+
+-----------------
+ 
+Beehouse Librarian 
+5 E67th Street, Apt. 1B
+New York, NY 10065 

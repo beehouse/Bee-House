@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <style>
+
+    .para,
+    .greeting,
+    .signature,
+    #bh_logo_img,   
+    .info,
+    p {
+      font-family: Geneva, 'Trebuchet MS', Arial;
+      color: #222222;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom:10px;
+    }
+    .greeting {
+      font-size: 125%;
+    }
+    .signature {
+      font-size: 110%; 
+    }
+    table.wrapper {
+      width: 100%;
+    }
+    table.header,
+    table.footer {
+      width: 600px; 
+    }
+    table.content {
+      width: 575px;
+    }
+    a {
+      color: #222222; 
+    }
+    a#bh_logo_link {
+      text-decoration: none; 
+    }
+    #bh_logo_img {
+      font-size: 275%;
+    }
+    #bh_logo {
+      height: 70px;
+    }
+    #bh_logo, 
+    .info {
+      border-left: 10px solid white;
+    }
+
+    .space,
+    .divider-normal {
+      height: 7px;
+    }
+
+    .contact {
+      width: 140px;
+    }
+
+    .address {
+      color: #bbbbbb;
+    }
+
+    .divider-normal {
+      border-top: 3px solid #222222;
+    }
+    .divider-small {
+      border-top: 1.25px solid #444444;  
+      height: 13px;
+    }
+  </style>
+</head>
+<body>
+  <table class="wrapper">
+    <table class="header" align="center">
+      <tr>
+        <td id="bh_logo"><a id="bh_logo_link" href="https://beehouse-library.herokuapp.com"><img id="bh_logo_img" src="http://s13.postimg.org/cef4nkub7/beehouse_pg_logo.png" alt="Beehouse Library"/></a></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="divider-normal" colspan="3"></td>
+      </tr>
+    </table>
+    <table class="content" align="center">
+      <tr><td class="greeting"><%= @patron.name.split(' ')[0] %>,</td></tr>
+      <tr><td class="space"></td></tr>
+
+      <tr class="para"><td><p>
+        I'm writing to inform you <a href="www.beehouse.nyc/books/<%= @resource.id %>"><%= @resource.title %></a> is overdue. Please return it <% if @loan.renewable? %> (or <a href="www.beehouse.nyc/books">renew it through the site</a>) <% end %> as soon as possible. For every day the resource is overdue you will be incur an additional 50¢ in late fees. Nobody wants that. 
+      </p></td></tr> 
+
+      <tr><td class="signature">Sincerely,<br>
+      Clay a</td></tr>
+      <tr><td class="space"></td></tr>
+    </table>
+    <table class="footer" align="center"> 
+      <tr>
+        <td class="divider-small" colspan="2"></td>
+      </tr>   
+      <tr>
+        <td class="info contact" valign="top">
+          Clayton Albachten<br>
+          Beehouse Librarian<br> 
+          T: <a href="tel:%28646%29%20787-5852" value="+16467875852" target="_blank">(646) 787-5852</a>
+        </td>
+        <td class="info address" valign="top">
+          <br>
+          5 E67th Street, Apt. 1B<br>
+          New York, NY 10065
+        </td>
+      </tr>
+    </table>    
+  </table>
+</body>
+</html>

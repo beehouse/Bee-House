@@ -12,6 +12,14 @@ class Loan < ActiveRecord::Base
     !self.returned 
   end 
 
+  def warned?
+    self.warned
+  end 
+
+  def unwarned?
+    !self.warned 
+  end 
+
   def reminded?
     self.reminded 
   end 
@@ -32,6 +40,10 @@ class Loan < ActiveRecord::Base
     due_date = self.ends 
     test_date = due_date - time 
     Date.today > test_date
+  end 
+
+  def overdue?
+    Date.today > self.ends 
   end 
 
   def to_h 
