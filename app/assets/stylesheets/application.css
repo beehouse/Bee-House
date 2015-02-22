@@ -174,3 +174,22 @@ ul {
 .beehouse__pg-logo:hover {
   cursor: pointer;
 }
+
+/* JQUERY UI ugliness */
+.ui-tabs .ui-tabs-panel, .ui-widget-content, .ui-widget-header, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: 1em "Crimson Text";
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+  font: 1em "Crimson Text";
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  border: none;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+  padding: 0.25em;
+  width: 100%;
+}
