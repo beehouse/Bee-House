@@ -4,15 +4,6 @@ BeeHouse.Views.PaymentsView = Backbone.View.extend(
     events: {
       'submit form': 'processCard'
     },
-    checkWithStripe: function(status, response){
-      console.log(status);
-      if (status == 200) {
-        console.log(response.id);
-      } else {
-        console.log(response.error.message);
-      }
-
-    },
     processCard: function(e){
       e.preventDefault();
       console.log('You submitted a form!');
@@ -23,7 +14,28 @@ BeeHouse.Views.PaymentsView = Backbone.View.extend(
         expYear: this.$('#payments__exp-year').val()
       };
       console.log(JSON.stringify(card));
-      Stripe.createToken(card, this.checkWithStripe);
+      Stripe.createToken(card, function(status, response){
+        console.log(status);
+        if (status == 200) {
+          console.log(response.id);
+          var fine = new BHFine({stripeToken: response.id});
+          fine.save()
+            .done(function(response){
+              console.log('Payment done!');
+              var patron = BeeHouse.session.get('currentUser');
+              patron.set('late_fees', 0);
+              Backbone.history.navigate('books', 
+                {trigger: true});
+
+            })
+            .error(function(response){
+              console.log(response.error);
+            });
+        } else {
+          console.log(response.error.message);
+        }
+
+      });
     },
     initialize: function(){
       Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));

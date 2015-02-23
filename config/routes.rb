@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   scope 'api' do 
     get 'loans' => 'loans#index'
+    post 'fines' => 'fines#create'
 
     resources :resources do 
       resources :reviews 
