@@ -5,5 +5,24 @@
   <header class="page__header payments__header">
     <h1>Pay for stuff</h1>
   </header>
-
+  <section>
+    <form id="payments__form">
+      <span class="payment-errors"></span>
+      <label>
+        <span>Card Number: </span>
+        <input type="text" size="20" id="payments__number">
+      </label>
+      <label>
+        <span>CVC</span>
+        <input type="text" size="4" id="payments__cvs">
+      </label>
+      <label>
+        <span>Expires (MM/YYYY):</span>
+        <input type="text" size="2" id="payments__exp-month">
+        <span> / </span>
+        <input type="text" size="4" id="payments__exp-year">
+      </label>
+      <button>Submit</button>
+    </form>
+  </section>
 </section>
