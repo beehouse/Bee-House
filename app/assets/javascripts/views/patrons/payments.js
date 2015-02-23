@@ -6,33 +6,40 @@ BeeHouse.Views.PaymentsView = Backbone.View.extend(
     },
     processCard: function(e){
       e.preventDefault();
-      console.log('You submitted a form!');
-      var card = {
-        number: this.$('#payments__number').val(),
-        cvc: $('#payments__cvs').val(),
-        expMonth: $('#payments__exp-month').val(),
-        expYear: this.$('#payments__exp-year').val()
-      };
-      console.log(JSON.stringify(card));
+
+      var that = this, 
+          card = {
+            number: this.$('#payments__number').val(),
+            cvc: $('#payments__cvs').val(),
+            expMonth: $('#payments__exp-month').val(),
+            expYear: this.$('#payments__exp-year').val()
+          };
+
+      
       Stripe.createToken(card, function(status, response){
-        console.log(status);
+        
         if (status == 200) {
-          console.log(response.id);
+          
           var fine = new BHFine({stripeToken: response.id});
           fine.save()
             .done(function(response){
-              console.log('Payment done!');
+              
               var patron = BeeHouse.session.get('currentUser');
               patron.set('late_fees', 0);
               Backbone.history.navigate('books', 
                 {trigger: true});
 
             })
-            .error(function(response){
-              console.log(response.error);
+            .fail(function(e){
+              that.$('.payment-errors').text(
+                e.responseJSON.error
+              );
             });
         } else {
-          console.log(response.error.message);
+          
+          this.$('.payment-errors').text(
+            response.error.message
+          );
         }
 
       });
