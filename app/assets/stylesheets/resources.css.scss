@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* ~!~!~!~!~!~!~ */
+/* ~!~!~!~!~!~!~ */
 /* BOOK INDEX */
+/* ~!~!~!~!~!~!~ */
+/* ~!~!~!~!~!~!~ */
 
 .book__pg-title {
   float: left;
@@ -14,29 +18,8 @@
 }
 .book__entry {
   border-bottom: 1px solid #bbb;
-  padding: 0.75em;
   list-style: none;
   overflow: auto; //janky clearfix
-}
-.book__images {
-  width: 15%;
-  float: left;
-  padding: 0.5em;
-  img {
-    max-width: 100%;
-  }
-}
-.book__attributes {
-  width: 60%;
-  float: left;
-  padding: 0.5em;
-}
-.book__hold-info {
-  height: 4em;
-  float: left;
-  .book__due-on {
-    display: block; 
-  } 
 }
 .book__thumbnail {
   float: left;
@@ -67,28 +50,73 @@
   font-style: italic;
 }
 
+/* desktop only */
+@media only screen and (min-width: 40em) {
+  .book__entry {
+    padding: 0.75em;
+  }
+  .book__images {
+    width: 15%;
+    float: left;
+    padding: 0.5em;
+    img {
+      max-width: 100%;
+    }
+  }
+  .book__attributes {
+    width: 60%;
+    float: left;
+    padding: 0.5em;
+  }
+  .book__hold-info {
+    height: 4em;
+    float: left;
+    .book__due-on {
+      display: block; 
+    } 
+  }
+}
+/* mobile only */
+@media only screen and (max-width: 40em) {
+  .book__thumbnail {
+    margin: 0 0.5em 0.5em 0;
+  }
+  .book__entry {
+    padding: 1.5em 0;
+  }
+  .book__description {
+    clear: both;
+  }
+}
+
+/* ~!~!~!~!~!~!~ */
+/* ~!~!~!~!~!~!~ */
 /* SHOW BOOK */
-.book-details__interactions, .bd__header--image {
-  width: 20%;
-  float: left;
+/* ~!~!~!~!~!~!~ */
+/* ~!~!~!~!~!~!~ */
+
+.bd__libnotes {
+  font-size: 1rem;
+  font-variant: small-caps;
+  letter-spacing: 0.15em;
+  padding-bottom: 0.5rem;
 }
-.bd__header--content {
-  float: left;
-  padding: 0 2rem;
-  width: 70%;
+.bd-interactions__entice {
+  font-style: italic;
+  margin-top: 1rem;
+  line-height: 1.65;
+  em {
+    border-bottom: 1px solid #bbb;
+  }
 }
-.bd__header--image .book__thumbnail {
-  width: 100%;
-  padding: 0 1em 1em 0;
+.bd-interactions__reserve {
+  display: block;
 }
-.bd-header__title {
-  line-height: 1.15;
-  margin-bottom: 0.25em;
+.bd__current-loan {
+  padding: 0.5em;
 }
 .bd-header__metadata {
   padding-top: 2em;
-  width: 50%;
-  float: left;
   dl {
     line-height: 2;
   }
@@ -106,39 +134,56 @@
   }
 }
 .bd-header__metadata + .bd-header__metadata {
-  border-left: 1px solid #bbb;
   text-align: right;
   min-height: 12em;
 }
-.bd__libnotes {
-  font-size: 1rem;
-  font-variant: small-caps;
-  letter-spacing: 0.15em;
-  padding-bottom: 0.5rem;
-}
-.book-details__main-col {
-  padding: 2rem;
-  width: 60%;
-  float: left;
-}
-.book-details__interactions {
-  padding: 2rem 1em 0 0;
-}
-.book-details__description p {
-  font-size: 1.5em;
-  line-height: 2;
-}
-.bd-interactions__entice {
-  font-style: italic;
-  margin-top: 1rem;
-  line-height: 1.65;
-  em {
-    border-bottom: 1px solid #bbb;
+
+/* desktop only */
+@media only screen and (min-width: 40em) {
+  .bd-header__metadata {
+    width: 50%;
+    float: left;
+  }
+  .bd-header__metadata + .bd-header__metadata {
+    border-left: 1px solid #bbb;
+  }
+  .book-details__interactions, .bd__header--image {
+    width: 20%;
+    float: left;
+  }
+  .bd__header--content {
+    float: left;
+    padding: 0 2rem;
+    width: 70%;
+  }
+  .bd__header--image .book__thumbnail {
+    width: 100%;
+    padding: 0 1em 1em 0;
+  }
+  .bd-header__title {
+    line-height: 1.15;
+    margin-bottom: 0.25em;
+  }
+  .book-details__main-col {
+    padding: 2rem;
+    width: 60%;
+    float: left;
+  }
+  .book-details__interactions {
+    padding: 2rem 1em 0 0;
+  }
+  .book-details__description p {
+    font-size: 1.5em;
+    line-height: 2;
   }
 }
-.bd-interactions__reserve {
-  display: block;
-}
-.bd__current-loan {
-  padding: 0.5em;
+/* mobile only */
+@media only screen and (max-width: 40em) {
+  .bd__header--image .book__thumbnail {
+    width: 100%;
+    float: none;
+  }
+  .bd__header--content, .book-details__interactions, .book-details__main-col {
+    padding: 1em 0;
+  }
 }

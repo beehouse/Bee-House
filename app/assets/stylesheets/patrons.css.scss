@@ -10,11 +10,6 @@ form label input {
 }
 
 // book aside profile column
-.book__checkout {
-	padding: 2em 1em;
- 	width: 22%;
-	float: left;
-}
 .checkout__list {
 	//padding: 1em;
 }
@@ -44,9 +39,7 @@ form label input {
   padding: 0.5em;
 }
 .checkout__welcome {
-	border-bottom: 1px solid #bbb;
 	padding: 1em 0;
-	margin-bottom: 1em;
 }
 .checkout__count {
   font-variant: small-caps;
@@ -55,4 +48,13 @@ form label input {
 .patron__book {
 	padding: 0.5em 0;
 	line-height: 1.25;
+}
+
+/* desktop only */
+@media only screen and (min-width: 40em) {
+	.book__checkout {
+		padding: 2em 1em;
+	 	width: 22%;
+		float: left;
+	}
 }

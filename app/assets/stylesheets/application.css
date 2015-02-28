@@ -16,6 +16,47 @@
  */
 
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic);
+
+
+/* media queries */
+@media only screen and (min-width: 40em) {
+  .main__column {
+    width: 75%;
+    float: left;
+    margin: 1em;
+    padding: 2em;
+    border-right: 10px solid #222;
+  }
+  .half {
+    width: 50%;
+    float: left;
+  }
+  .half__column {
+    margin: 1em;
+    padding: 2em;
+    width: 47%;
+    float: left;
+  }
+  .full__column {
+    margin: 1em;
+    padding: 2em;
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  input {
+    width: 100%;
+  }
+  button {
+    display: block;
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin: 1em 0;
+  }
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -85,7 +126,7 @@ input, textarea {
   transition: 0.25s border-color;
 }
 input:hover, textarea:hover {
-  border-color: #bbb;
+  border-color: #FFDC0B;
 }
 input:focus, textarea:focus {
   outline: none;
@@ -126,27 +167,6 @@ ul {
 }
 .pos-fixed {
   position: fixed;
-}
-.main__column {
-  width: 75%;
-  float: left;
-  margin: 1em;
-  padding: 2em;
-  border-right: 10px solid #222;
-}
-.half {
-  width: 50%;
-  float: left;
-}
-.half__column {
-  margin: 1em;
-  padding: 2em;
-  width: 47%;
-  float: left;
-}
-.full__column {
-  margin: 1em;
-  padding: 2em;
 }
 .page__header {
   border-bottom: 1px solid #222;
@@ -203,8 +223,16 @@ ul {
 }
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
   border: none;
-}
-.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
   padding: 0.25em;
   width: 100%;
+  border-bottom: 1px solid #222;
+  margin-bottom: 1em;
+  transition: 0.1s border-bottom;
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor:hover, .ui-tabs .ui-tabs-nav .ui-tabs-anchor:focus {
+  outline: none;
+  border-bottom: 3px solid #FFDC0B;  
+}
+.ui-tabs .ui-tabs-nav .ui-tabs-active .ui-tabs-anchor {
+  border-bottom: 3px solid #FFDC0B;  
 }

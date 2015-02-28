@@ -5,18 +5,6 @@
 .landing__header {
   margin-bottom: 0.75em;
 }
-.beehouse__main-logo {
-	float: right;
-}
-.patrons__signin, .patrons__signup {
-	padding: 3em 1em;
-	width: 22%;
-	float: left;
-	input {
-		position: relative;
-		width: 100%;
-	}
-}
 .signup-signin__switcher {
 	padding-top: 1em;
 }
@@ -31,5 +19,36 @@
 .signin, .signup {
 	button {
 		float: right;
+	}
+}
+
+@media only screen and (min-width: 40em) {
+	.beehouse__main-logo {
+		float: right;
+	}
+	.patrons__signin, .patrons__signup {
+		padding: 3em 1em;
+		width: 22%;
+		float: left;
+		input {
+			position: relative;
+			width: 100%;
+		}
+	}
+}
+@media only screen and (max-width: 40em) {
+	.logo__wrap {
+		text-align: center;
+		margin-bottom: 450px;
+		height: 170px;
+	}
+	.beehouse__main-logo {
+		margin: auto;
+		max-height: 150px;
+	}
+	.patrons__signin, .patrons__signup {
+		position: absolute;
+		top: 200px;
+		width: 90%;
 	}
 }
