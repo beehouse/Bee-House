@@ -204,7 +204,8 @@ ul {
   list-style: none;
 }
 .page__navigation ul li {
-  margin: 0 0.5em;
+  margin: 0;
+  display: inline-block;
 }
 .beehouse__pg-logo:hover {
   cursor: pointer;

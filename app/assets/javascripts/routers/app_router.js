@@ -40,6 +40,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     routes: { 
       'books': 'indexResources',
       'books/page-:num': 'indexResources',
+      'books/new': 'addResources',
       'books/:id': 'showResource',
       'fines': 'newPayment',
       'admin': 'showAdminPanel',
@@ -126,6 +127,10 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     newPayment: function(){
       var paymentsView = new BHPayments();
       this.changeView(paymentsView);
+    },
+    addResources: function() {
+      var addingView = new BHNewResource();
+      this.changeView(addingView);
     },
     indexResources: function(page){
       page = page || 1; 

@@ -8,15 +8,26 @@
 <ul>
   <li> 
     <a class="books" href="/books">Books</a>
-  <% if(currentUser.isAdmin()){ %>
-    <a class="admin" href="/admin">Requests</a>
-  <% } %>
-    <a class="patrons" href="/patrons">Patrons</a>
-  <% if(session){ %>
-    <a class="signout" href="/signout">Sign Out</a>
-  <% } else { %> 
-    <a class="signin" href="/signin">Sign In</a>
-  <% } %>
   </li>
+  <% if(currentUser.isAdmin()){ %>
+  <li>
+    <a class="new" href="/books/new">Add Book</a>
+  </li>
+  <li>
+    <a class="admin" href="/admin">Requests</a>
+  </li>
+  <% } %>
+  <li>
+    <a class="patrons" href="/patrons">Patrons</a>
+  </li>
+  <% if(session){ %>
+  <li>
+    <a class="signout" href="/signout">Sign Out</a>
+  </li>
+  <% } else { %> 
+  <li>
+    <a class="signin" href="/signin">Sign In</a>
+  </li>
+  <% } %>
 </ul>
 </nav>
