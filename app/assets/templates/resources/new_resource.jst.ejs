@@ -6,31 +6,41 @@
   </header>
 
   <form>
-  		<label>Title</label>
-		<input>
+  		<div class="input--full">
+	  		<label>Title</label>
+			<input type="text">
+		</div>
 
-		<label>Author</label>
-		<input>
+		<div class="input--half">
+			<label>Author</label>
+			<input type="text">
+		</div>
+		<div class="input--half">
+			<label>Categories <em class="add-book__sidenote">Comma separated</em></label>
+			<input type="text">
+		</div>
+		<div class="input--quarter">
+			<label>Year</label>
+			<input type="text">
+		</div>
 
-		<label>Year</label>
-		<input>
-
-		<label>Publisher</label>
-		<input>
-
-		<label>Format</label>
-		<input>
-
-		<label>Language</label>
-		<input>
-
-		<label>Categories</label>
-		<input>
-
-		<label>Notes</label>
-		<textarea></textarea>
-
-		<button>Save book</button>
+		<div class="input--quarter">
+			<label>Publisher</label>
+			<input type="text">
+		</div>
+		<div class="input--quarter">
+			<label>Format</label>
+			<input type="text">
+		</div>
+		<div class="input--quarter">
+			<label>Language</label>
+			<input type="text">
+		</div>
+		<div class="add-book__notes input--full">
+			<label>Notes</label>
+			<textarea></textarea>
+		</div>
+		<button class="add-book__save">Save book</button>
 	</form>
 
 </section>
