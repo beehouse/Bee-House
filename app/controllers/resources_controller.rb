@@ -22,7 +22,22 @@ class ResourcesController < ApplicationController
     end 
   end
 
+  def create 
+    @resource = Resource.new(resource_params)
+    if @resource.save 
+      render :show and return 
+    else
+      render(:json => {:errors => @resource.errors}, :status => :unprocessable_entity) and return 
+    end 
+  end 
+
   def show
     @resource = Resource.find params[:id] 
   end
+    private 
+
+    def resource_params 
+      params.permit(:title, :creator, :date, 
+        :description, :language, :format, :publisher)
+    end 
 end

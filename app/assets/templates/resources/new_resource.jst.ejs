@@ -8,37 +8,37 @@
   <form>
   		<div class="input--full">
 	  		<label>Title</label>
-			<input type="text">
+			<input id="title_input">
 		</div>
 
 		<div class="input--half">
 			<label>Author</label>
-			<input type="text">
+			<input id="creator_input">
 		</div>
 		<div class="input--half">
 			<label>Categories <em class="add-book__sidenote">Comma separated</em></label>
-			<input type="text">
+			<input>
 		</div>
 		<div class="input--quarter">
 			<label>Year</label>
-			<input type="text">
+			<input id="date_input" type="date">
 		</div>
 
 		<div class="input--quarter">
 			<label>Publisher</label>
-			<input type="text">
+			<input id="publisher_input">
 		</div>
 		<div class="input--quarter">
 			<label>Format</label>
-			<input type="text">
+			<input id="format_input">
 		</div>
 		<div class="input--quarter">
 			<label>Language</label>
-			<input type="text">
+			<input id="language_input">
 		</div>
 		<div class="add-book__notes input--full">
-			<label>Notes</label>
-			<textarea></textarea>
+			<label>Description</label>
+			<textarea id="description_textarea"></textarea>
 		</div>
 		<button class="add-book__save">Save book</button>
 	</form>
@@ -46,11 +46,7 @@
 </section>
 
 <aside>
-	<h3>34 Books in BH</h3>
+	<h3><%= bookCount %> Books in BH</h3>
 	<ol class="add-book__inventory">
-		<li>A Dark Dreambox</li>
-		<li>A Dark Dreambox</li>
-		<li>A Dark Dreambox</li>
-		<li>A Dark Dreambox</li>
 	</ol>
 </aside>

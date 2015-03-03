@@ -40,7 +40,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     routes: { 
       'books': 'indexResources',
       'books/page-:num': 'indexResources',
-      'books/new': 'addResources',
+      'books/new': 'newResource',
       'books/:id': 'showResource',
       'fines': 'newPayment',
       'admin': 'showAdminPanel',
@@ -53,7 +53,7 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
     }, 
     // Use regex in requiresAuth for dynamic paths 
     // e.g. if books/:id, /^books\/[1-9][0-9]*$/ 
-    requiresAuth: ['books', 'patrons', 'admin', 'signout', 'fines'],
+    requiresAuth: ['books', 'patrons', 'admin', 'signout', 'fines', /^books\/page-[0-9]+$/],
     redirectToAfter: [/^books\/[1-9][0-9]*$/],
     preventAccessWhenAuth: ['signup', 'signin', ''], 
     before: function(params, next){
@@ -128,9 +128,21 @@ BeeHouse.AppRouter = BeeHouse.BaseRouter.extend(
       var paymentsView = new BHPayments();
       this.changeView(paymentsView);
     },
-    addResources: function() {
-      var addingView = new BHNewResource();
-      this.changeView(addingView);
+    newResource: function() {
+      var resources = new BHResources(),
+               that = this;
+
+      resources
+        .fetch({data: {page: false}})
+        .done(function(){
+          var view = new BHNewResource(
+            {collection: resources});
+          that.changeView(view);
+        })
+        .fail(function(error){
+          console.log("There was an error!:"); 
+          console.log(error);
+        });
     },
     indexResources: function(page){
       page = page || 1; 

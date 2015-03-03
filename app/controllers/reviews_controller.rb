@@ -21,8 +21,7 @@ class ReviewsController < ApplicationController
 
     private 
 
-    def review_params
-      ap params  
+    def review_params 
       params.permit(:resource_id, :patron_id, :content)
     end  
 end
